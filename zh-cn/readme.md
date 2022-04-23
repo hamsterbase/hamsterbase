@@ -18,6 +18,7 @@ docker run --rm --name hamsterbase --publish 3001:3001 --volume ~/.hamsterbase/d
 
 - 储存和预览 [MHTML](https://zh.wikipedia.org/zh-cn/MHTML) 和 [Webarchive](https://en.wikipedia.org/wiki/Webarchive) 文档。
 - 对储存的页面进行高亮、批注。
+- 不依赖任何服务端，所有数据都在本地。
 
 ## 价格
 
