@@ -1,8 +1,8 @@
 # HamsterBase
 
-HamsterBase 是一款 **本地优先** 的网页保存工具 , 提供自部署的 docker 版本。
+HamsterBase 是一款自部署的网页保存工具。
 
-## Online Demo
+## 在线 Demo
 
 https://hamsterbase.onrender.com
 
@@ -16,7 +16,7 @@ docker run --rm --name hamsterbase --publish 3001:3001 --volume ~/.hamsterbase/d
 
 ## 特色
 
-- 储存和语言 [MHTML](https://zh.wikipedia.org/zh-cn/MHTML) 和 [Webarchive](https://en.wikipedia.org/wiki/Webarchive) 文档。
+- 储存和预览 [MHTML](https://zh.wikipedia.org/zh-cn/MHTML) 和 [Webarchive](https://en.wikipedia.org/wiki/Webarchive) 文档。
 - 对储存的页面进行高亮、批注。
 
 ## 价格
