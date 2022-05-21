@@ -1,5 +1,7 @@
 # HamsterBase
 
+[用户协议](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [隐私协议](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [开源项目](https://hamsterbase.com/docs/legal/credits.html)
+
 HamsterBase 是一款自部署的离线网页知识库管理应用，可针对页面进行高亮和批注，重视隐私性和安全性。
 
 ![Screenshot](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
