@@ -1,14 +1,10 @@
 # HamsterBase
 
-[EULA](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [Privacy policy](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [Credits](https://hamsterbase.com/docs/legal/credits.html)
+[Online Demo](https://hamsterbase.onrender.com) | [EULA](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [Privacy policy](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [Credits](https://hamsterbase.com/docs/legal/credits.html)
 
-HamsterBase is a self-hosted, local-first webpage knowledge base management application. You can easy highlight and annotate pages, valuing privacy and security.
+HamsterBase is a self-hosted, local-first web archive application. You can easy highlight and annotate pages, valuing privacy and security.
 
 ![Screenshot](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
-
-## Online Demo
-
-https://hamsterbase.onrender.com
 
 ## Docker deployment (only 5 seconds)
 
