@@ -2,6 +2,8 @@
 
 HamsterBase is a self-hosted, local-first webpage knowledge base management application. You can easy highlight and annotate pages, valuing privacy and security.
 
+![Screenshot](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
+
 ## Online Demo
 
 https://hamsterbase.onrender.com

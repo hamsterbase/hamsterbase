@@ -2,6 +2,8 @@
 
 HamsterBase 是一款自部署的离线网页知识库管理应用，可针对页面进行高亮和批注，重视隐私性和安全性。
 
+![Screenshot](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
+
 ## 在线 Demo
 
 https://hamsterbase.onrender.com
@@ -26,6 +28,6 @@ docker run \
 - 可对页面进行高亮、批注并且可溯源批注内容。
 - 不依赖任何服务端，所有数据都在本地。
 
-## Pricing
+## 价格
 
 https://hamsterbase.com/pricing/
