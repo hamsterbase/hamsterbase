@@ -8,21 +8,24 @@ https://hamsterbase.onrender.com
 
 ## Docker deployment (only 5 seconds)
 
-Latest Version: 0.1.0
+Latest Version: 0.2.0
 
 ```bash
-docker run --rm --name hamsterbase --publish 3001:3001 --volume ~/.hamsterbase/data:/app/data hamsterbase/hamsterbase:0.1.0
+docker run \
+ -d --rm \
+ --name hamsterbase2 \
+ --publish 31001:31001 \
+ --volume ~/.hamsterbase/data:/app/data \
+ hamsterbase/hamsterbase:0.2.0 \
+ --port 31001
 ```
 
 ## Features
 
-- Store, manage, and preview [MHTML](https://en.wikipedia.org/wiki/MHTML) and [Webarchive](https://en.wikipedia.org/wiki/Webarchive) documents.
+- Store, manage, and preview HTML、[MHTML](https://en.wikipedia.org/wiki/MHTML) and [Webarchive](https://en.wikipedia.org/wiki/Webarchive) documents.
 - Webpages can be highlighted, annotated and annotated retroactively.
 - No dependency on any server, all data is local first.
 
-## Fee model
+## Pricing
 
-1. Totally free during the test period.
-1. One purchase unlocks **all current** features + newer features for the next year. After expiration, the original features will be available as usual. If you want to use the next updated features, you can renew your subscription at a 40% discount.
-1. Charge per account, no limit to the number of activated devices.
-1. Less than Pocket Premium one-year subscription.
+https://hamsterbase.com/pricing/
