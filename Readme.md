@@ -8,7 +8,7 @@ HamsterBase is a self-hosted, local-first web archive application. You can easy 
 
 ## Docker deployment (only 5 seconds)
 
-Latest Version: 0.2.0
+Latest Version: 0.3.0
 
 ```bash
 docker run \
@@ -16,7 +16,7 @@ docker run \
  --name hamsterbase2 \
  --publish 31001:31001 \
  --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:0.2.0 \
+ hamsterbase/hamsterbase:0.3.0 \
  --port 31001
 ```
 
