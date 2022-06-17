@@ -1,35 +1,43 @@
 # HamsterBase
 
-[用户协议](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [隐私协议](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [开源项目](https://hamsterbase.com/docs/legal/credits.html)
+[Online Demo](https://hamsterbase.onrender.com) | [用户协议](https://hamsterbase.com/zh/docs/legal/eula/000.html) ｜ [隐私协议](https://hamsterbase.com/zh/docs/legal/privacy/000.html) ｜ [三方库](https://hamsterbase.com/zh/docs/legal/credits.html)
 
-HamsterBase 是一款自部署的离线网页知识库管理应用，可针对页面进行高亮和批注，重视隐私性和安全性。
+![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 
-![Screenshot](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
+HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高亮网页，我们重视隐私和安全。
 
-## 在线 Demo
+## 功能
 
-https://hamsterbase.onrender.com
+- 储存、管理和预览 HTML, [MHTML](https://en.wikipedia.org/wiki/MHTML) and [Webarchive](https://en.wikipedia.org/wiki/Webarchive) 格式的文档。
+- 对保存的页面进行高亮、批注。
+- 创建自定义筛选，过滤出需要的页面。
+- 通过 RSS 订阅输出筛选后页面。
+- 不依赖服务，所有功能都是离线的。
+- 全文搜索
 
-## Docker 部署 (仅需 5 秒)
+## Docker 部署 (只需 5 秒)
 
-最新版本 : 0.2.0
+Latest Version: 0.3.0
 
 ```bash
 docker run \
  -d --rm \
- --name hamsterbase2 \
+ --name hamsterbase \
  --publish 31001:31001 \
  --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:0.2.0 \
+ hamsterbase/hamsterbase:0.3.0 \
  --port 31001
 ```
 
-## 特色
+## 从源码构建
 
-- 统一存储、管理、预览 HTML、[MHTML](https://zh.wikipedia.org/zh-cn/MHTML) 和 [Webarchive](https://en.wikipedia.org/wiki/Webarchive) 文档。
-- 可对页面进行高亮、批注并且可溯源批注内容。
-- 不依赖任何服务端，所有数据都在本地。
+1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase)
+2. 安装以来
 
-## 价格
+   ```bash
+   cd src
+   npm install
+   ```
 
-https://hamsterbase.com/pricing/
+3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 simple 文件夹
+4. 运行脚本 `node main.js`
