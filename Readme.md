@@ -20,6 +20,19 @@ docker run \
  --port 31001
 ```
 
+## Build from source
+
+1. Clone [repository](https://github.com/hamsterbase/hamsterbase)
+2. Install dependencies
+
+   ```bash
+   cd src
+   npm install
+   ```
+
+3. Download [sqlite fts extension](https://github.com/wangfenjin/simple/releases), Unzip the file and place it in src/simple.
+4. Run Script `node main.js`
+
 ## Features
 
 - Store, manage, and preview HTML、[MHTML](https://en.wikipedia.org/wiki/MHTML) and [Webarchive](https://en.wikipedia.org/wiki/Webarchive) documents.
