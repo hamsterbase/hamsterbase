@@ -1,2 +1,6 @@
 *.js.map
 node_modules
+.vscode
+temp
+yarn.lock
+.DS_Store
