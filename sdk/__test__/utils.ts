@@ -14,3 +14,7 @@ export function getBase64Fixture(fixtureName: Fixtures): Promise<string> {
 export function resolveRoot(relativePath: string) {
   return path.resolve(__dirname, '../..', relativePath);
 }
+
+export function getPort() {
+  return Math.floor(Math.random() * 1000) + 5000;
+}

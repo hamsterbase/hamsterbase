@@ -1,24 +1,30 @@
 import { join } from 'path';
+import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { HamsterBase } from '../../hamsterbase';
+import { createTestServer } from '../server';
+import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
-import { HamsterBase } from '../hamsterbase';
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { Fixtures, getBase64Fixture, resolveRoot } from './utils';
-import { createTestServer } from './server';
 
 describe('test webpages', () => {
   let hamsterbase: HamsterBase;
   let dispose: () => void;
+
+  let port: number;
+  beforeAll(() => {
+    port = getPort();
+  });
+
   beforeEach(async () => {
     const server = await createTestServer({
-      port: 4000,
+      port,
       database: join(resolveRoot('temp'), `${Math.random()}`),
     });
-    dispose = server.dispose;
     hamsterbase = new HamsterBase({
       endpoint: server.endpoint,
       token: server.token,
       requestLib: fetch,
     });
+    dispose = server.dispose;
   });
   afterEach(async () => {
     await dispose();

@@ -25,15 +25,18 @@ export class Client {
   post<T>(api: string, data: unknown) {
     return this.request<T>('POST', api, data);
   }
+  delete<T>(api: string) {
+    return this.request<T>('DELETE', api);
+  }
 
-  private async request<T>(method: string, api: string, data: unknown): Promise<T> {
+  private async request<T>(method: string, api: string, data?: unknown): Promise<T> {
     const response = await this.options.requestLib(`${this.options.endpoint}/public/api/v1${api}`, {
       method: method,
       headers: {
         'Content-Type': 'application/json',
         authorization: `token ${this.options.token}`,
       },
-      body: JSON.stringify(data),
+      body: data ? JSON.stringify(data) : undefined,
     });
     if (response.status !== 200) {
       const message = await response.text();
