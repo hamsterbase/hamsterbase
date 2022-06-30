@@ -18,6 +18,10 @@ export class WebPages {
     return this.client.get<WebPage>(`/webpages/${id}`);
   }
 
+  getContent(id: string): Promise<string> {
+    return this.client.get<string>(`/webpages/${id}/content`);
+  }
+
   update(id: string, newData: UpdateWebPage): Promise<WebPage> {
     return this.client.put<WebPage>(`/webpages/${id}`, newData);
   }

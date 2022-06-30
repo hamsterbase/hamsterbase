@@ -51,9 +51,21 @@ describe('test webpages', () => {
     });
   });
 
+  it('002: should get correct webpage content', async () => {
+    const content = await hamsterbase.webpages.getContent('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
+    expect(content).toEqual(await getBase64Fixture(Fixtures.HamsterBaseDocument));
+  });
+
   it('E001: should get 404 error when id is invalid', async () => {
     try {
       await hamsterbase.webpages.get('1');
+    } catch (error) {
+      expect(error.status).toBe(404);
+      expect(error.message).toEqual('webpage not found');
+    }
+
+    try {
+      await hamsterbase.webpages.getContent('1');
     } catch (error) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual('webpage not found');
