@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { HamsterBase } from '../../hamsterbase';
+import { WebsiteExt } from '../../webpages/types';
 import { createTestServer } from '../server';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
@@ -33,7 +34,7 @@ describe('test webpages', () => {
   it('001: should get correct property when upload mthml', async () => {
     const result = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
-      ext: 'mhtml',
+      ext: WebsiteExt.mhtml,
     });
     expect(result).toEqual({
       id: 'bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f',
@@ -45,7 +46,7 @@ describe('test webpages', () => {
   it('002: should get correct property when upload html', async () => {
     const webarchive = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseGithubHome),
-      ext: 'html',
+      ext: WebsiteExt.html,
       title: 'HamsterBase Home',
     });
     expect(webarchive).toEqual({
@@ -58,7 +59,7 @@ describe('test webpages', () => {
   it('003: property should not be overridden when a file is uploaded.', async () => {
     const first = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
-      ext: 'webarchive',
+      ext: WebsiteExt.webarchive,
     });
     expect(first).toEqual({
       id: 'b03e82c2b622df1f039ecba4910f464becf5600b12425ea3d1f65d4c17d70d8d',
@@ -68,7 +69,8 @@ describe('test webpages', () => {
 
     const second = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
-      ext: 'webarchive',
+      ext: WebsiteExt.webarchive,
+
       title: 'Issues',
     });
     expect(second).toEqual({
@@ -81,7 +83,7 @@ describe('test webpages', () => {
   it('004: should get correct property when property is correct and ext is error. should override property when ext change.', async () => {
     const first = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
-      ext: 'html',
+      ext: WebsiteExt.html,
       title: 'HamsterBase: Github Issue',
       link: 'https://github.com/hamsterbase',
     });
@@ -93,7 +95,7 @@ describe('test webpages', () => {
 
     const second = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
-      ext: 'webarchive',
+      ext: WebsiteExt.webarchive,
     });
     expect(second).toEqual({
       id: 'b03e82c2b622df1f039ecba4910f464becf5600b12425ea3d1f65d4c17d70d8d',
@@ -109,7 +111,7 @@ describe('test webpages', () => {
           ext: 'web' as any,
         },
         {
-          ext: 'webarchive',
+          ext: WebsiteExt.webarchive,
         },
         {
           content: '',
@@ -132,7 +134,7 @@ describe('test webpages', () => {
       try {
         await hamsterbase.webpages.create({
           content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
-          ext: 'webarchive',
+          ext: WebsiteExt.webarchive,
           link: 'equinix.com',
         });
       } catch (error) {
@@ -145,7 +147,7 @@ describe('test webpages', () => {
       try {
         await hamsterbase.webpages.create({
           content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
-          ext: 'mhtml',
+          ext: WebsiteExt.mhtml,
         });
       } catch (error) {
         expect(error.code).toBe('E0001');
@@ -155,7 +157,7 @@ describe('test webpages', () => {
       try {
         await hamsterbase.webpages.create({
           content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
-          ext: 'webarchive',
+          ext: WebsiteExt.webarchive,
         });
       } catch (error) {
         expect(error.code).toBe('E0001');

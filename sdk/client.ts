@@ -29,6 +29,10 @@ export class Client {
     return this.request<T>('DELETE', api);
   }
 
+  get<T>(api: string) {
+    return this.request<T>('GET', api);
+  }
+
   private async request<T>(method: string, api: string, data?: unknown): Promise<T> {
     const response = await this.options.requestLib(`${this.options.endpoint}/public/api/v1${api}`, {
       method: method,

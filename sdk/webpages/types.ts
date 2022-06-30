@@ -2,7 +2,7 @@ export interface UploadWebpageRequest {
   /**
    * @required
    */
-  ext: 'mhtml' | 'webarchive' | 'html';
+  ext: WebsiteExt;
   /**
    * @required
    *
@@ -11,6 +11,26 @@ export interface UploadWebpageRequest {
   content: string;
   title?: string;
   link?: string;
+}
+
+export const enum WebsiteExt {
+  mhtml = 'mhtml',
+  webarchive = 'webarchive',
+  html = 'html',
+}
+
+export interface WebPage {
+  title: string;
+  excerpt: string;
+  firstAddTime: number;
+  createTime: number;
+  liked: boolean;
+  link?: string;
+  ext: WebsiteExt;
+  id: string;
+  size: number;
+  read: boolean;
+  highlights: any[];
 }
 
 export interface UploadWebpageResponse {

@@ -4,6 +4,7 @@ import { HamsterBase } from '../../hamsterbase';
 import { describe, it, expect, beforeEach, afterEach, beforeAll } from 'vitest';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 import { createTestServer } from '../server';
+import { WebsiteExt } from '../../webpages/types';
 
 describe('test webpages', () => {
   let hamsterbase: HamsterBase;
@@ -25,7 +26,7 @@ describe('test webpages', () => {
     });
     await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
-      ext: 'mhtml',
+      ext: WebsiteExt.mhtml,
     });
     dispose = server.dispose;
   });
@@ -77,7 +78,7 @@ describe('test webpages', () => {
     await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     const result = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
-      ext: 'mhtml',
+      ext: WebsiteExt.mhtml,
       title: 'new title',
     });
     expect(result).toEqual({
@@ -91,7 +92,7 @@ describe('test webpages', () => {
     await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     const result = await hamsterbase.webpages.create({
       content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
-      ext: 'html',
+      ext: WebsiteExt.html,
       title: 'new title',
       link: 'https://hamsterbase.com',
     });
