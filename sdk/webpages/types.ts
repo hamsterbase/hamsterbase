@@ -33,6 +33,14 @@ export interface WebPage {
   highlights: any[];
 }
 
+export interface UpdateWebPage {
+  title?: string;
+  excerpt?: string;
+  liked?: boolean;
+  link?: string;
+  read?: boolean;
+}
+
 export interface UploadWebpageResponse {
   id: string;
 }

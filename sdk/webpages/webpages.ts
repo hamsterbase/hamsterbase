@@ -1,5 +1,5 @@
 import { Client } from '../client';
-import { UploadWebpageRequest, UploadWebpageResponse, WebPage } from './types';
+import { UpdateWebPage, UploadWebpageRequest, UploadWebpageResponse, WebPage } from './types';
 
 export class WebPages {
   constructor(private client: Client) {}
@@ -16,5 +16,9 @@ export class WebPages {
 
   get(id: string): Promise<WebPage> {
     return this.client.get<WebPage>(`/webpages/${id}`);
+  }
+
+  update(id: string, newData: UpdateWebPage): Promise<WebPage> {
+    return this.client.put<WebPage>(`/webpages/${id}`, newData);
   }
 }

@@ -25,6 +25,10 @@ export class Client {
   post<T>(api: string, data: unknown) {
     return this.request<T>('POST', api, data);
   }
+  put<T>(api: string, data: unknown) {
+    return this.request<T>('PUT', api, data);
+  }
+
   delete<T>(api: string) {
     return this.request<T>('DELETE', api);
   }
