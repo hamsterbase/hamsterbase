@@ -112,4 +112,17 @@ describe('test update', () => {
       expect(result).toEqual(originalData);
     }
   });
+
+  it('E003: should throw 404 when id is invalid', async () => {
+    let err: HttpError;
+    try {
+      await hamsterbase.webpages.update('not_found', {
+        link: `github.com`,
+      });
+    } catch (error) {
+      err = error;
+    }
+    expect(err!.status).toEqual(404);
+    expect(err!.message).toEqual('webpage not found');
+  });
 });
