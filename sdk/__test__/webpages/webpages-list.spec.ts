@@ -1,9 +1,9 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { HamsterBase } from '../../hamsterbase';
-import { WebsiteExt } from '../../webpages/types';
+import { ListOptions, WebsiteExt } from '../../webpages/types';
 import { createTestServer } from '../server';
-import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
+import { FixturesId, Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
 
 describe('test webpages', () => {
@@ -25,15 +25,15 @@ describe('test webpages', () => {
       requestLib: fetch,
     });
     await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.mhtml,
     });
     await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
       ext: WebsiteExt.webarchive,
     });
     await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubHome),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubHome_03_html),
       ext: WebsiteExt.html,
     });
     dispose = server.dispose;
@@ -42,7 +42,7 @@ describe('test webpages', () => {
     await dispose();
   });
 
-  it('001: should get all pages', async () => {
+  it('001: should support get all pages', async () => {
     const result = await hamsterbase.webpages.list();
     expect(result.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toEqual([
       {
@@ -82,5 +82,67 @@ describe('test webpages', () => {
         annotateCount: 0,
       },
     ]);
+  });
+
+  async function expectList(idList: string[], options: ListOptions) {
+    const result = await hamsterbase.webpages.list(options);
+    expect(result.map((p) => p.id)).toEqual(idList);
+  }
+
+  it('002: should support filter by liked status', async () => {
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { liked: true });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { liked: true });
+    await expectList([FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseGithubIssue_02_webarchive], { liked: false });
+  });
+
+  it('003: should support filter by read status', async () => {
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { read: true });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { read: true });
+    await expectList([FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseGithubIssue_02_webarchive], { read: false });
+  });
+
+  it('004: should support filter by host', async () => {
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { link: 'https://z.com' });
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubHome_03_html, { link: 'https://test.z.com' });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { host: 'z.com' });
+
+    await expectList([FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseDocument_01_mht], { host: ['test.z.com', 'z.com'] });
+    await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive], { host: ['github.com'] });
+  });
+
+  it('004: should support filter by ext', async () => {
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { ext: WebsiteExt.mhtml });
+    await expectList([FixturesId.HamsterBaseGithubHome_03_html], { ext: WebsiteExt.html });
+    await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive], { ext: WebsiteExt.webarchive });
+
+    await expectList(
+      [FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseDocument_01_mht],
+      { ext: [WebsiteExt.webarchive, WebsiteExt.html, WebsiteExt.mhtml] }
+    );
+  });
+
+  it('004: should support sort', async () => {
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { title: 'bb' });
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubIssue_02_webarchive, { title: 'aa' });
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubHome_03_html, { title: 'cc' });
+
+    await expectList(
+      [FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubHome_03_html],
+      { sort: 'title_asc' }
+    );
+    await expectList(
+      [FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubIssue_02_webarchive],
+      { sort: 'title_desc' }
+    );
+
+    await expectList(
+      [FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html],
+      { sort: 'first_add_time_asc' }
+    );
+
+    await expectList(
+      [FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseDocument_01_mht],
+      { sort: 'first_add_time_desc' }
+    );
   });
 });

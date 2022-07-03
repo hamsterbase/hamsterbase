@@ -1,5 +1,5 @@
 import { Client } from '../client';
-import { UpdateWebPage, UploadWebpageRequest, UploadWebpageResponse, WebPage } from './types';
+import { UpdateWebPage, UploadWebpageRequest, UploadWebpageResponse, WebPage, ListOptions } from './types';
 
 export class WebPages {
   constructor(private client: Client) {}
@@ -26,7 +26,34 @@ export class WebPages {
     return this.client.put<WebPage>(`/webpages/${id}`, newData);
   }
 
-  list(): Promise<WebPage[]> {
+  list(options?: ListOptions): Promise<WebPage[]> {
+    if (options) {
+      const searchParams = new URLSearchParams({});
+      if (typeof options.liked === 'boolean') {
+        searchParams.append('liked', String(options.liked));
+      }
+      if (typeof options.read === 'boolean') {
+        searchParams.append('read', String(options.read));
+      }
+      if (typeof options.sort === 'string') {
+        searchParams.append('sort', String(options.sort));
+      }
+      if (typeof options.host === 'string') {
+        searchParams.append('host', String(options.host));
+      } else if (Array.isArray(options.host)) {
+        options.host.forEach((e) => {
+          searchParams.append('host', String(e));
+        });
+      }
+      if (typeof options.ext === 'string') {
+        searchParams.append('ext', String(options.ext));
+      } else if (Array.isArray(options.ext)) {
+        options.ext.forEach((e) => {
+          searchParams.append('ext', String(e));
+        });
+      }
+      return this.client.get<WebPage[]>(`/webpages?${searchParams.toString()}`);
+    }
     return this.client.get<WebPage[]>(`/webpages`);
   }
 }

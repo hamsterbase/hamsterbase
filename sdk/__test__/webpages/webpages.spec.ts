@@ -33,7 +33,7 @@ describe('test webpages', () => {
 
   it('001: should get correct property when upload mthml', async () => {
     const result = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.mhtml,
     });
     expect(result).toEqual({
@@ -45,7 +45,7 @@ describe('test webpages', () => {
 
   it('002: should get correct property when upload html', async () => {
     const webarchive = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubHome),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubHome_03_html),
       ext: WebsiteExt.html,
       title: 'HamsterBase Home',
     });
@@ -58,7 +58,7 @@ describe('test webpages', () => {
 
   it('003: property should not be overridden when a file is uploaded.', async () => {
     const first = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
       ext: WebsiteExt.webarchive,
     });
     expect(first).toEqual({
@@ -68,7 +68,7 @@ describe('test webpages', () => {
     });
 
     const second = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
       ext: WebsiteExt.webarchive,
 
       title: 'Issues',
@@ -82,7 +82,7 @@ describe('test webpages', () => {
 
   it('004: should get correct property when property is correct and ext is error. should override property when ext change.', async () => {
     const first = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
       ext: WebsiteExt.html,
       title: 'HamsterBase: Github Issue',
       link: 'https://github.com/hamsterbase',
@@ -94,7 +94,7 @@ describe('test webpages', () => {
     });
 
     const second = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+      content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
       ext: WebsiteExt.webarchive,
     });
     expect(second).toEqual({
@@ -107,7 +107,7 @@ describe('test webpages', () => {
     it('E001: should throw 400 error when content or ext is invalid.', async () => {
       const badRequests = [
         {
-          content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+          content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
           ext: 'web' as any,
         },
         {
@@ -133,7 +133,7 @@ describe('test webpages', () => {
     it('E002: should throw 400 error when link is invalid.', async () => {
       try {
         await hamsterbase.webpages.create({
-          content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+          content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
           ext: WebsiteExt.webarchive,
           link: 'equinix.com',
         });
@@ -146,7 +146,7 @@ describe('test webpages', () => {
     it('E003: should throw E0001 error when content parsing fails.', async () => {
       try {
         await hamsterbase.webpages.create({
-          content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue),
+          content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
           ext: WebsiteExt.mhtml,
         });
       } catch (error) {
@@ -156,7 +156,7 @@ describe('test webpages', () => {
 
       try {
         await hamsterbase.webpages.create({
-          content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+          content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
           ext: WebsiteExt.webarchive,
         });
       } catch (error) {

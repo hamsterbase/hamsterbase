@@ -25,7 +25,7 @@ describe('test webpages', () => {
       requestLib: fetch,
     });
     await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.mhtml,
     });
     dispose = server.dispose;
@@ -77,7 +77,7 @@ describe('test webpages', () => {
   it('005: should ignore params when upload a deleted webpage', async () => {
     await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     const result = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.mhtml,
       title: 'new title',
     });
@@ -91,7 +91,7 @@ describe('test webpages', () => {
   it('006: should update properties when ext are changed, even if the page is deleted', async () => {
     await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     const result = await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.html,
       title: 'new title',
       link: 'https://hamsterbase.com',

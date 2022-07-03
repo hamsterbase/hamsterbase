@@ -26,7 +26,7 @@ describe('test webpages', () => {
       requestLib: fetch,
     });
     await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.mhtml,
     });
     dispose = server.dispose;
@@ -53,7 +53,7 @@ describe('test webpages', () => {
 
   it('002: should get correct webpage content', async () => {
     const content = await hamsterbase.webpages.getContent('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
-    expect(content).toEqual(await getBase64Fixture(Fixtures.HamsterBaseDocument));
+    expect(content).toEqual(await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht));
   });
 
   it('E001: should get 404 error when id is invalid', async () => {

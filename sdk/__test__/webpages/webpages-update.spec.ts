@@ -27,7 +27,7 @@ describe('test update', () => {
       requestLib: fetch,
     });
     await hamsterbase.webpages.create({
-      content: await getBase64Fixture(Fixtures.HamsterBaseDocument),
+      content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
       ext: WebsiteExt.mhtml,
     });
     dispose = server.dispose;

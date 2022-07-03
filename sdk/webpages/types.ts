@@ -44,3 +44,12 @@ export interface UpdateWebPage {
 export interface UploadWebpageResponse {
   id: string;
 }
+
+export interface ListOptions {
+  liked?: boolean;
+  read?: boolean;
+  annotated?: boolean;
+  host?: string | string[];
+  ext?: WebsiteExt | WebsiteExt[];
+  sort?: 'title_asc' | 'title_desc' | 'first_add_time_asc' | 'first_add_time_desc' | 'annotate_count_asc' | 'annotate_count_desc';
+}
