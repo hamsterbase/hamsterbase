@@ -51,5 +51,16 @@ export interface ListOptions {
   annotated?: boolean;
   host?: string | string[];
   ext?: WebsiteExt | WebsiteExt[];
+  /**
+   * @default 'first_add_time_desc'
+   */
   sort?: 'title_asc' | 'title_desc' | 'first_add_time_asc' | 'first_add_time_desc' | 'annotate_count_asc' | 'annotate_count_desc';
+  /**
+   * @default 30
+   */
+  per_page?: number;
+  /**
+   * @default 1
+   */
+  page?: number;
 }

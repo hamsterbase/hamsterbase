@@ -110,7 +110,7 @@ describe('test webpages', () => {
     await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive], { host: ['github.com'] });
   });
 
-  it('004: should support filter by ext', async () => {
+  it('005: should support filter by ext', async () => {
     await expectList([FixturesId.HamsterBaseDocument_01_mht], { ext: WebsiteExt.mhtml });
     await expectList([FixturesId.HamsterBaseGithubHome_03_html], { ext: WebsiteExt.html });
     await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive], { ext: WebsiteExt.webarchive });
@@ -121,7 +121,7 @@ describe('test webpages', () => {
     );
   });
 
-  it('004: should support sort', async () => {
+  it('006: should support sort', async () => {
     await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { title: 'bb' });
     await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubIssue_02_webarchive, { title: 'aa' });
     await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubHome_03_html, { title: 'cc' });
@@ -144,5 +144,14 @@ describe('test webpages', () => {
       [FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseDocument_01_mht],
       { sort: 'first_add_time_desc' }
     );
+  });
+
+  it('007: should support per_page and page', async () => {
+    await expectList([FixturesId.HamsterBaseGithubHome_03_html], { per_page: 1 });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { per_page: 1, page: 3 });
+
+    await expectList([FixturesId.HamsterBaseGithubHome_03_html, FixturesId.HamsterBaseGithubIssue_02_webarchive], { per_page: 2 });
+
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { per_page: 2, page: 2 });
   });
 });

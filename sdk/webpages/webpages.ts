@@ -52,6 +52,12 @@ export class WebPages {
           searchParams.append('ext', String(e));
         });
       }
+      if (typeof options.page === 'number') {
+        searchParams.append('page', String(options.page));
+      }
+      if (typeof options.per_page === 'number') {
+        searchParams.append('per_page', String(options.per_page));
+      }
       return this.client.get<WebPage[]>(`/webpages?${searchParams.toString()}`);
     }
     return this.client.get<WebPage[]>(`/webpages`);
