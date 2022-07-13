@@ -22,5 +22,5 @@ export function resolveRoot(relativePath: string) {
 }
 
 export function getPort() {
-  return Math.floor(Math.random() * 1000) + 5000;
+  return Math.floor(Math.random() * 4000) + 5000;
 }

@@ -29,7 +29,7 @@ export async function createTestServer(options: RunServerOptions) {
   const token = `${Math.random()}`;
   try {
     await fs.rm(options.database, { recursive: true });
-  } catch (error) {}
+  } catch (error) { }
   await initToken(options.database, token);
   return new Promise<{
     endpoint: string;
@@ -47,6 +47,7 @@ export async function createTestServer(options: RunServerOptions) {
       },
     });
     cp.stdout!.on('data', (data: string) => {
+      // console.log(data.toString());
       if (data.toString().includes('Hamsterbase has started at')) {
         resolve({
           endpoint: `http://localhost:${options.port}`,

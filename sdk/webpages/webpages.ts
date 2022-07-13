@@ -1,5 +1,5 @@
 import { Client } from '../client';
-import { UpdateWebPage, UploadWebpageRequest, UploadWebpageResponse, WebPage, ListOptions } from './types';
+import { UpdateWebPage, UploadWebpageRequest, UploadWebpageResponse, WebPage, ListOptions, SearchOptions, FilterOptions } from './types';
 
 export class WebPages {
   constructor(private client: Client) {}
@@ -28,38 +28,50 @@ export class WebPages {
 
   list(options?: ListOptions): Promise<WebPage[]> {
     if (options) {
-      const searchParams = new URLSearchParams({});
-      if (typeof options.liked === 'boolean') {
-        searchParams.append('liked', String(options.liked));
-      }
-      if (typeof options.read === 'boolean') {
-        searchParams.append('read', String(options.read));
-      }
+      const searchParams = this.buildFilterOptions(options);
       if (typeof options.sort === 'string') {
         searchParams.append('sort', String(options.sort));
-      }
-      if (typeof options.host === 'string') {
-        searchParams.append('host', String(options.host));
-      } else if (Array.isArray(options.host)) {
-        options.host.forEach((e) => {
-          searchParams.append('host', String(e));
-        });
-      }
-      if (typeof options.ext === 'string') {
-        searchParams.append('ext', String(options.ext));
-      } else if (Array.isArray(options.ext)) {
-        options.ext.forEach((e) => {
-          searchParams.append('ext', String(e));
-        });
-      }
-      if (typeof options.page === 'number') {
-        searchParams.append('page', String(options.page));
-      }
-      if (typeof options.per_page === 'number') {
-        searchParams.append('per_page', String(options.per_page));
       }
       return this.client.get<WebPage[]>(`/webpages?${searchParams.toString()}`);
     }
     return this.client.get<WebPage[]>(`/webpages`);
+  }
+
+  search(options: SearchOptions) {
+    const searchParams = this.buildFilterOptions(options);
+    searchParams.append('q', String(options.q));
+    return this.client.get<WebPage[]>(`/search/webpages?${searchParams.toString()}`);
+  }
+
+  private buildFilterOptions(options: FilterOptions) {
+    const searchParams = new URLSearchParams({});
+    if (typeof options.liked === 'boolean') {
+      searchParams.append('liked', String(options.liked));
+    }
+    if (typeof options.read === 'boolean') {
+      searchParams.append('read', String(options.read));
+    }
+
+    if (typeof options.host === 'string') {
+      searchParams.append('host', String(options.host));
+    } else if (Array.isArray(options.host)) {
+      options.host.forEach((e) => {
+        searchParams.append('host', String(e));
+      });
+    }
+    if (typeof options.ext === 'string') {
+      searchParams.append('ext', String(options.ext));
+    } else if (Array.isArray(options.ext)) {
+      options.ext.forEach((e) => {
+        searchParams.append('ext', String(e));
+      });
+    }
+    if (typeof options.page === 'number') {
+      searchParams.append('page', String(options.page));
+    }
+    if (typeof options.per_page === 'number') {
+      searchParams.append('per_page', String(options.per_page));
+    }
+    return searchParams;
   }
 }

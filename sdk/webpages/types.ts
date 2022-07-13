@@ -45,16 +45,14 @@ export interface UploadWebpageResponse {
   id: string;
 }
 
-export interface ListOptions {
+
+
+export interface FilterOptions {
   liked?: boolean;
   read?: boolean;
   annotated?: boolean;
   host?: string | string[];
   ext?: WebsiteExt | WebsiteExt[];
-  /**
-   * @default 'first_add_time_desc'
-   */
-  sort?: 'title_asc' | 'title_desc' | 'first_add_time_asc' | 'first_add_time_desc' | 'annotate_count_asc' | 'annotate_count_desc';
   /**
    * @default 30
    */
@@ -63,4 +61,17 @@ export interface ListOptions {
    * @default 1
    */
   page?: number;
+}
+
+
+
+export interface ListOptions extends FilterOptions {
+  /**
+   * @default 'first_add_time_desc'
+   */
+  sort?: 'title_asc' | 'title_desc' | 'first_add_time_asc' | 'first_add_time_desc' | 'annotate_count_asc' | 'annotate_count_desc';
+}
+
+export interface SearchOptions extends FilterOptions {
+  q: string;
 }
