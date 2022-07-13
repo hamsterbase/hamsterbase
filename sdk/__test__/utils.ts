@@ -17,6 +17,10 @@ export function getBase64Fixture(fixtureName: Fixtures): Promise<string> {
   return fs.readFile(path.join(__dirname, 'fixtures', fixtureName), 'base64');
 }
 
+export function resolveFixture(fixtureName: string) {
+  return path.resolve(__dirname, 'fixtures', fixtureName);
+}
+
 export function resolveRoot(relativePath: string) {
   return path.resolve(__dirname, '../..', relativePath);
 }

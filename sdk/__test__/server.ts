@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { fork } from 'child_process';
-import { resolveRoot } from './utils';
+import { resolveFixture, resolveRoot } from './utils';
 import fs from 'fs/promises';
 
 interface RunServerOptions {
@@ -25,12 +25,18 @@ async function initToken(database: string, token: string) {
   );
 }
 
+export async function initCache(database: string) {
+  await fs.mkdir(join(database, 'cache', 'webpage-parser'), { recursive: true });
+  await fs.cp(resolveFixture('webpage-parser'), join(database, 'cache', 'webpage-parser'), { recursive: true });
+}
+
 export async function createTestServer(options: RunServerOptions) {
   const token = `${Math.random()}`;
   try {
     await fs.rm(options.database, { recursive: true });
-  } catch (error) { }
+  } catch (error) {}
   await initToken(options.database, token);
+  await initCache(options.database);
   return new Promise<{
     endpoint: string;
     token: string;
