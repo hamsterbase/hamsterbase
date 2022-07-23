@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^0.16.0",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
