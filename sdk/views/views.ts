@@ -8,6 +8,14 @@ export class Views {
     return this.client.post('/views', request);
   }
 
+  views(): Promise<any[]> {
+    return this.client.get('/views');
+  }
+
+  delete(id: string): Promise<void> {
+    return this.client.delete(`/views/${id}`);
+  }
+
   getWebpages(id: string): Promise<WebPage[]> {
     return this.client.get(`/views/${id}/webpages`);
   }
