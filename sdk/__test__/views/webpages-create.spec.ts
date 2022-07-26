@@ -119,6 +119,13 @@ describe('test create view', () => {
       ],
     };
     const { id, createdAt, ...rest } = await hamsterbase.webpagesView.create(request);
-    expect(rest).toEqual(request);
+    expect({
+      ...rest,
+      filters: rest.filters?.map((o) => {
+        return { ...o, id: undefined };
+      }),
+    }).toEqual(request);
+
+    expect(rest.filters?.map((p) => p.id.length)).toEqual([47, 47, 47, 47, 47, 47]);
   });
 });

@@ -82,6 +82,8 @@ export interface CreateViewRequest {
   match?: WebpagesViewFilterMatchRule;
 }
 
+export type WithId<T> = T & { id: string };
+
 export interface CreateViewResponse {
   id: string;
   title: string;
@@ -89,4 +91,5 @@ export interface CreateViewResponse {
   enableLimit: boolean;
   limit: number;
   sort: WebpagesViewSortOrder;
+  filters?: WithId<WebpagesViewFilter>[];
 }
