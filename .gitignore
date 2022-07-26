@@ -4,3 +4,4 @@ node_modules
 temp
 yarn.lock
 .DS_Store
+src/simple

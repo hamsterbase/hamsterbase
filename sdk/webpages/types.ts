@@ -45,8 +45,6 @@ export interface UploadWebpageResponse {
   id: string;
 }
 
-
-
 export interface FilterOptions {
   liked?: boolean;
   read?: boolean;
@@ -62,8 +60,6 @@ export interface FilterOptions {
    */
   page?: number;
 }
-
-
 
 export interface ListOptions extends FilterOptions {
   /**
