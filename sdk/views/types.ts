@@ -82,6 +82,15 @@ export interface CreateViewRequest {
   match?: WebpagesViewFilterMatchRule;
 }
 
+export interface PatchViewRequest {
+  title?: string;
+  description?: string;
+  sort?: WebpagesViewSortOrder;
+  limit?: number;
+  enableLimit?: boolean;
+  match?: WebpagesViewFilterMatchRule;
+}
+
 export type WithId<T> = T & { id: string };
 
 export interface CreateViewResponse {

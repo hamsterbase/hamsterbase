@@ -25,6 +25,11 @@ export class Client {
   post<T>(api: string, data: unknown) {
     return this.request<T>('POST', api, data);
   }
+
+  patch<T>(api: string, data: unknown) {
+    return this.request<T>('PATCH', api, data);
+  }
+
   put<T>(api: string, data: unknown) {
     return this.request<T>('PUT', api, data);
   }
