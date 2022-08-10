@@ -13,6 +13,10 @@ export class Views {
     return this.client.post('/views', request);
   }
 
+  get(id: string): Promise<any> {
+    return this.client.get(`/views/${id}`);
+  }
+
   views(): Promise<any[]> {
     return this.client.get('/views');
   }

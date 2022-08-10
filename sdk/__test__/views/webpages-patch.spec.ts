@@ -58,9 +58,7 @@ describe('test create view', () => {
       enableLimit: true,
     };
 
-    const newViewOptions = await hamsterbase.webpagesView.patch(initViewId, patchOptions);
-    const newView = (await hamsterbase.webpagesView.views())[0];
-    expect(newView).toEqual(newViewOptions);
-    expect(newView).toEqual({ id: initViewId, filters: [], createdAt: newView.createdAt, ...patchOptions });
+    const patchResponse = await hamsterbase.webpagesView.patch(initViewId, patchOptions);
+    expect(patchResponse).toEqual(await hamsterbase.webpagesView.get(patchResponse.id));
   });
 });
