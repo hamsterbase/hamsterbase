@@ -44,7 +44,7 @@ describe('test webpages', () => {
 
   it('001: should support get all pages', async () => {
     const result = await hamsterbase.webpages.list();
-    expect(result.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toEqual([
+    expect(result.webpages.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toEqual([
       {
         id: 'd4a1267d1f8a8eeb20d7b4b86a9d91839809e083ceb42366847ed5ed3a6cf254',
         title: 'GitHub - hamsterbase/hamsterbase: self-hosted, local-first web archive application.',
@@ -86,7 +86,7 @@ describe('test webpages', () => {
 
   async function expectList(idList: string[], options: ListOptions) {
     const result = await hamsterbase.webpages.list(options);
-    expect(result.map((p) => p.id)).toEqual(idList);
+    expect(result.webpages.map((p) => p.id)).toEqual(idList);
   }
 
   it('002: should support filter by liked status', async () => {

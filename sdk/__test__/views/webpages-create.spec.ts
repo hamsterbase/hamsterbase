@@ -53,7 +53,7 @@ describe('test create view', () => {
 
   async function expectList(idList: string[], viewId: string) {
     const result = await hamsterbase.webpagesView.getWebpages(viewId);
-    expect(result.map((p) => p.id)).toEqual(idList);
+    expect(result.webpages.map((p) => p.id)).toEqual(idList);
   }
 
   it('01: default options should be correct', async () => {

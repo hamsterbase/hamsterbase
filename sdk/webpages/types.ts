@@ -71,3 +71,7 @@ export interface ListOptions extends FilterOptions {
 export interface SearchOptions extends FilterOptions {
   q: string;
 }
+
+export interface WebpagesList {
+  webpages: WebPage[];
+}

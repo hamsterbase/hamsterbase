@@ -44,24 +44,24 @@ describe('test webpages', () => {
 
   it('001: should support get all pages', async () => {
     const result = await hamsterbase.webpages.search({ q: 'hamsterbase' });
-    expect(result.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toMatchSnapshot('search result');
+    expect(result.webpages.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toMatchSnapshot('search result');
   });
 
   async function expectList(idList: string[], options: ListOptions) {
     const result = await hamsterbase.webpages.search({ q: 'hamsterbase', ...options });
-    expect(result.map((p) => p.id)).toEqual(idList);
+    expect(result.webpages.map((p) => p.id)).toEqual(idList);
   }
 
   it('002: should support filter by liked status', async () => {
     await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { liked: true });
     await expectList([FixturesId.HamsterBaseDocument_01_mht], { liked: true });
-    await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html,], { liked: false });
+    await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html], { liked: false });
   });
 
   it('003: should support filter by read status', async () => {
     await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { read: true });
     await expectList([FixturesId.HamsterBaseDocument_01_mht], { read: true });
-    await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html,], { read: false });
+    await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html], { read: false });
   });
 
   it('004: should support filter by host', async () => {
@@ -69,7 +69,7 @@ describe('test webpages', () => {
     await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubHome_03_html, { link: 'https://test.z.com' });
     await expectList([FixturesId.HamsterBaseDocument_01_mht], { host: 'z.com' });
 
-    await expectList([FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubHome_03_html,], { host: ['test.z.com', 'z.com'] });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubHome_03_html], { host: ['test.z.com', 'z.com'] });
     await expectList([FixturesId.HamsterBaseGithubIssue_02_webarchive], { host: ['github.com'] });
   });
 
@@ -84,10 +84,11 @@ describe('test webpages', () => {
     );
   });
 
-
-
   it('007: should support per_page and page', async () => {
-    await expectList([FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html], { page: 1 });
+    await expectList(
+      [FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html],
+      { page: 1 }
+    );
     await expectList([FixturesId.HamsterBaseDocument_01_mht], { per_page: 1 });
     await expectList([FixturesId.HamsterBaseGithubHome_03_html], { per_page: 1, page: 3 });
 

@@ -1,5 +1,5 @@
 import { Client } from '../client';
-import { WebPage } from '../webpages/types';
+import { WebPage, WebpagesList } from '../webpages/types';
 import { CreateViewRequest, CreateViewResponse, PatchViewRequest } from './types';
 
 export class Views {
@@ -25,7 +25,7 @@ export class Views {
     return this.client.delete(`/views/${id}`);
   }
 
-  getWebpages(id: string): Promise<WebPage[]> {
+  getWebpages(id: string): Promise<WebpagesList> {
     return this.client.get(`/views/${id}/webpages`);
   }
 }
