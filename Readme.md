@@ -14,6 +14,8 @@ HamsterBase is a self-hosted, local-first web archive application. You can easy 
 - How to turn views into RSS feed.
 - No dependency on any server, all data is local first.
 - Full Text Search
+- Open source SDK
+- Dark Mode
 
 ## Docker deployment (only 5 seconds)
 
