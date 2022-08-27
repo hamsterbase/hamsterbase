@@ -1,6 +1,6 @@
 # HamsterBase
 
-[Online Demo](https://hamsterbase.onrender.com) | [EULA](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [Privacy policy](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [Credits](https://hamsterbase.com/docs/legal/credits.html)
+[Online Demo](https://hamsterbase.onrender.com) | [EULA](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [Privacy policy](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [Credits](https://hamsterbase.com/docs/legal/credits.html) | [SDK](https://www.npmjs.com/package/@hamsterbase/sdk)
 
 ![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 

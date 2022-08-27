@@ -1,6 +1,6 @@
 # HamsterBase
 
-[Online Demo](https://hamsterbase.onrender.com) | [用户协议](https://hamsterbase.com/zh/docs/legal/eula/000.html) ｜ [隐私协议](https://hamsterbase.com/zh/docs/legal/privacy/000.html) ｜ [三方库](https://hamsterbase.com/zh/docs/legal/credits.html)
+[Online Demo](https://hamsterbase.onrender.com) | [用户协议](https://hamsterbase.com/zh/docs/legal/eula/000.html) ｜ [隐私协议](https://hamsterbase.com/zh/docs/legal/privacy/000.html) ｜ [三方库](https://hamsterbase.com/zh/docs/legal/credits.html) | [SDK](https://www.npmjs.com/package/@hamsterbase/sdk)
 
 ![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 
