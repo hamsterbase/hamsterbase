@@ -1,5 +1,5 @@
 import { Client } from '../client';
-import { Webpage, WebpagesList } from '../webpages/types';
+import { WebpagesList } from '../webpages/types';
 import { CreateViewRequest, CreateViewResponse, PatchWebpagesViewRequest } from './types';
 
 export class Views {

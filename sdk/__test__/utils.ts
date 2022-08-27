@@ -25,6 +25,10 @@ export function resolveRoot(relativePath: string) {
   return path.resolve(__dirname, '../..', relativePath);
 }
 
+export function resolveBetaFile(relativePath: string) {
+  return path.resolve(resolveRoot('beta'), relativePath);
+}
+
 export function getPort() {
   return Math.floor(Math.random() * 4000) + 5000;
 }

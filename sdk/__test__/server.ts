@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { fork } from 'child_process';
-import { resolveFixture, resolveRoot } from './utils';
+import { resolveBetaFile, resolveFixture, resolveRoot } from './utils';
 import fs from 'fs/promises';
 
 interface RunServerOptions {
@@ -42,17 +42,21 @@ export async function createTestServer(options: RunServerOptions) {
     token: string;
     dispose: () => Promise<void>;
   }>((resolve) => {
-    const mainServer = process.env.HAMSTER_BASE_SERVER || resolveRoot('src/server/main.js');
+    const mainServer = process.env.HAMSTER_BASE_SERVER || resolveBetaFile('server/main.js');
     const cp = fork(mainServer, ['--port', `${options.port}`], {
       stdio: 'pipe',
       env: {
         DATABASE_DIR: options.database,
-        DOC_DIR: resolveRoot('src/docs'),
-        WEB_RESOURCES: resolveRoot('src/web'),
+        DOC_DIR: resolveBetaFile('docs'),
+        WEB_RESOURCES: resolveRoot('web'),
         SIMPLE: resolveRoot('src/simple'),
       },
     });
+    cp.stderr!.on('data', (data) => {
+      // console.log(data.toString());
+    });
     cp.stdout!.on('data', (data: string) => {
+      // console.log('data', data);
       if (data.toString().includes('Hamsterbase has started at')) {
         resolve({
           endpoint: `http://localhost:${options.port}`,
