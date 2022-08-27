@@ -1,1 +1,3 @@
 hamsterbase all rights reserved. You should follow the [EULA](https://hamsterbase.com/docs/legal/eula/000.html);
+
+- All content that resides under the "sdk/" directory of this repository, if that directory exists, is licensed under the license defined in "sdk/LICENSE".
