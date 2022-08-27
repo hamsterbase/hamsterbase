@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "cd sdk && npm run test",
-    "build": "cd test && npm run build"
+    "build": "cd sdk && npm run build",
+    "postinstall": "cd sdk && yarn"
   },
   "devDependencies": {}
 }
