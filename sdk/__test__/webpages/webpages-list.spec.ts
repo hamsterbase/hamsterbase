@@ -1,9 +1,9 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HamsterBase } from '../../hamsterbase';
-import { ListOptions, WebsiteExt } from '../../webpages/types';
+import { HamsterBase } from '../../src/hamsterbase';
+import { ListOptions, WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
-import { FixturesId, Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
+import { Fixtures, FixturesId, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
 
 describe('test webpages', () => {

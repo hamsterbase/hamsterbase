@@ -1,12 +1,12 @@
-import { UpdateWebPage } from './../../webpages/types';
 import { join } from 'path';
-require('isomorphic-fetch');
-import { HamsterBase } from '../../hamsterbase';
-import { describe, it, expect, beforeEach, afterEach, beforeAll } from 'vitest';
-import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
+import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { HttpError } from '../../src/error';
+import { HamsterBase } from '../../src/hamsterbase';
+import { WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
-import { WebsiteExt } from '../../webpages/types';
-import { HttpError } from '../../error';
+import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
+import { PatchWebPageRequest } from './../../src/webpages/types';
+require('isomorphic-fetch');
 
 describe('test update', () => {
   let hamsterbase: HamsterBase;
@@ -38,7 +38,7 @@ describe('test update', () => {
 
   it('001: should get correct model after update', async () => {
     const originalData = await hamsterbase.webpages.get('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
-    const update: UpdateWebPage = {
+    const update: PatchWebPageRequest = {
       title: `new title ${Math.random()}`,
       link: `https://github.com/hamsterbase?q=${Math.random()}`,
       liked: true,
@@ -59,7 +59,7 @@ describe('test update', () => {
       await hamsterbase.webpages.update('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f', {
         link: `github.com`,
       });
-    } catch (error) {
+    } catch (error: any) {
       err = error;
     }
     expect(err!.status).toEqual(400);
@@ -67,7 +67,7 @@ describe('test update', () => {
   });
 
   it('E002: should ignore invalid fields and apply correct fields.', async () => {
-    const errorData: [UpdateWebPage, UpdateWebPage][] = [
+    const errorData: [PatchWebPageRequest, PatchWebPageRequest][] = [
       [
         {
           title: 1,
@@ -104,7 +104,7 @@ describe('test update', () => {
           link: 'http://www.example.com',
         },
       ],
-    ] as any as [UpdateWebPage, UpdateWebPage][];
+    ] as any as [PatchWebPageRequest, PatchWebPageRequest][];
     let originalData = await hamsterbase.webpages.get('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     for (const iterator of errorData) {
       const result = await hamsterbase.webpages.update('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f', iterator[0]);
@@ -119,7 +119,7 @@ describe('test update', () => {
       await hamsterbase.webpages.update('not_found', {
         link: `github.com`,
       });
-    } catch (error) {
+    } catch (error: any) {
       err = error;
     }
     expect(err!.status).toEqual(404);

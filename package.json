@@ -1,9 +1,7 @@
 {
   "scripts": {
-    "test": "vitest run"
+    "test": "cd sdk && npm run test",
+    "build": "cd test && npm run build"
   },
-  "devDependencies": {
-    "isomorphic-fetch": "^3.0.0",
-    "vitest": "^0.16.0"
-  }
+  "devDependencies": {}
 }

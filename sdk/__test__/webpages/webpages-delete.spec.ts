@@ -1,10 +1,10 @@
 import { join } from 'path';
 require('isomorphic-fetch');
-import { HamsterBase } from '../../hamsterbase';
+import { HamsterBase } from '../../src/hamsterbase';
 import { describe, it, expect, beforeEach, afterEach, beforeAll } from 'vitest';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 import { createTestServer } from '../server';
-import { WebsiteExt } from '../../webpages/types';
+import { WebsiteExt } from '../../src/webpages/types';
 
 describe('test webpages', () => {
   let hamsterbase: HamsterBase;
@@ -41,7 +41,7 @@ describe('test webpages', () => {
     });
     try {
       await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual('webpage not found');
     }
@@ -51,7 +51,7 @@ describe('test webpages', () => {
     await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     try {
       await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual('webpage not found');
     }
@@ -60,7 +60,7 @@ describe('test webpages', () => {
   it('003: should throw error when id is empty', async () => {
     try {
       await hamsterbase.webpages.delete('');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.message).toEqual('invalid webpage id');
     }
   });
@@ -68,7 +68,7 @@ describe('test webpages', () => {
   it('004: should throw not found error when id is invalid', async () => {
     try {
       await hamsterbase.webpages.delete('123');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual('webpage not found');
     }

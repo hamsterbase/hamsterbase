@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HamsterBase } from '../../hamsterbase';
-import { ListOptions, WebsiteExt } from '../../webpages/types';
+import { HamsterBase } from '../../src/hamsterbase';
+import { WebpagesListOptions, WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
 import { FixturesId, Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
@@ -47,7 +47,7 @@ describe('test webpages', () => {
     expect(result.webpages.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toMatchSnapshot('search result');
   });
 
-  async function expectList(idList: string[], options: ListOptions) {
+  async function expectList(idList: string[], options: WebpagesListOptions) {
     const result = await hamsterbase.webpages.search({ q: 'hamsterbase', ...options });
     expect(result.webpages.map((p) => p.id)).toEqual(idList);
   }

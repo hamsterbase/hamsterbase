@@ -1,8 +1,8 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HamsterBase } from '../../hamsterbase';
-import { PatchViewRequest, WebpagesViewSortOrder } from '../../views';
-import { WebsiteExt } from '../../webpages/types';
+import { HamsterBase } from '../../src/hamsterbase';
+import { PatchWebpagesViewRequest, WebpagesViewSortOrder } from '../../src/views';
+import { WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
@@ -49,7 +49,7 @@ describe('test create view', () => {
   });
 
   it('01: patch view should be correct', async () => {
-    const patchOptions: PatchViewRequest = {
+    const patchOptions: PatchWebpagesViewRequest = {
       title: 'patch title',
       description: 'patch description',
       sort: WebpagesViewSortOrder.annotate_count_desc,

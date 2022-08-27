@@ -1,11 +1,11 @@
 import { join } from 'path';
 require('isomorphic-fetch');
-import { HamsterBase } from '../../hamsterbase';
+import { HamsterBase } from '../../src/hamsterbase';
 import { describe, it, expect, beforeEach, afterEach, beforeAll } from 'vitest';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 import { createTestServer } from '../server';
-import { WebsiteExt } from '../../webpages/types';
-import { HttpError } from '../../error';
+import { WebsiteExt } from '../../src/webpages/types';
+import { HttpError } from '../../src/error';
 
 describe('test webpages', () => {
   let hamsterbase: HamsterBase;
@@ -59,14 +59,14 @@ describe('test webpages', () => {
   it('E001: should get 404 error when id is invalid', async () => {
     try {
       await hamsterbase.webpages.get('1');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual('webpage not found');
     }
 
     try {
       await hamsterbase.webpages.getContent('1');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual('webpage not found');
     }
@@ -77,7 +77,7 @@ describe('test webpages', () => {
     let error: HttpError | null = null;
     try {
       await hamsterbase.webpages.get('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
-    } catch (err) {
+    } catch (err: any) {
       error = err;
     }
     expect(error!.status).toBe(404);

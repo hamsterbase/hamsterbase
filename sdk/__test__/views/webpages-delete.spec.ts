@@ -1,17 +1,9 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HamsterBase } from '../../hamsterbase';
-import {
-  AnnotationFilterOperator,
-  CreateViewRequest,
-  FirstAddTimeFilterOperator,
-  FirstAddTimeFilterRightOperands,
-  WebpagesViewFilterType,
-  WebpagesViewSortOrder,
-} from '../../views';
-import { WebsiteExt } from '../../webpages/types';
+import { HamsterBase } from '../../src/hamsterbase';
+import { CreateViewRequest } from '../../src/views';
 import { createTestServer } from '../server';
-import { Fixtures, FixturesId, getBase64Fixture, getPort, resolveRoot } from '../utils';
+import { getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
 
 describe('test create view', () => {
@@ -55,7 +47,7 @@ describe('test create view', () => {
     await hamsterbase.webpagesView.delete(id);
     try {
       await hamsterbase.webpagesView.delete(id);
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual(`view ${id} not found`);
     }
@@ -64,7 +56,7 @@ describe('test create view', () => {
 
     try {
       await hamsterbase.webpagesView.delete(nodeFount);
-    } catch (error) {
+    } catch (error: any) {
       expect(error.status).toBe(404);
       expect(error.message).toEqual(`view ${nodeFount} not found`);
     }

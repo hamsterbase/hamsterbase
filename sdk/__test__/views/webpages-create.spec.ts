@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HamsterBase } from '../../hamsterbase';
+import { HamsterBase } from '../../src/hamsterbase';
 import {
   AnnotationFilterOperator,
   CreateViewRequest,
@@ -8,8 +8,8 @@ import {
   FirstAddTimeFilterRightOperands,
   WebpagesViewFilterType,
   WebpagesViewSortOrder,
-} from '../../views';
-import { WebsiteExt } from '../../webpages/types';
+} from '../../src/views';
+import { WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
 import { Fixtures, FixturesId, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');

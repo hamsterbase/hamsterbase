@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HamsterBase } from '../../hamsterbase';
-import { WebsiteExt } from '../../webpages/types';
+import { HamsterBase } from '../../src/hamsterbase';
+import { WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
@@ -124,7 +124,7 @@ describe('test webpages', () => {
         for (const iterator of badRequests) {
           await hamsterbase.webpages.create(iterator as any);
         }
-      } catch (error) {
+      } catch (error: any) {
         expect(error.status).toBe(400);
         expect(error.message).toEqual('content or ext is invalid');
       }
@@ -137,7 +137,7 @@ describe('test webpages', () => {
           ext: WebsiteExt.webarchive,
           link: 'equinix.com',
         });
-      } catch (error) {
+      } catch (error: any) {
         expect(error.status).toBe(400);
         expect(error.message).toEqual('link is invalid. link should start link http://www.example.com.');
       }
@@ -149,7 +149,7 @@ describe('test webpages', () => {
           content: await getBase64Fixture(Fixtures.HamsterBaseGithubIssue_02_webarchive),
           ext: WebsiteExt.mhtml,
         });
-      } catch (error) {
+      } catch (error: any) {
         expect(error.code).toBe('E0001');
         expect(error.message).toBe('parse error: Missing MHTML headers; Line 1');
       }
@@ -159,7 +159,7 @@ describe('test webpages', () => {
           content: await getBase64Fixture(Fixtures.HamsterBaseDocument_01_mht),
           ext: WebsiteExt.webarchive,
         });
-      } catch (error) {
+      } catch (error: any) {
         expect(error.code).toBe('E0001');
         expect(error.message).toBe(`parse error: Invalid binary plist. Expected 'bplist' at offset 0.`);
       }

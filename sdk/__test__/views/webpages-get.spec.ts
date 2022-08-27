@@ -1,9 +1,8 @@
 import { join } from 'path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { HttpError } from '../../error';
-import { HamsterBase } from '../../hamsterbase';
-import { PatchViewRequest, WebpagesViewSortOrder } from '../../views';
-import { WebsiteExt } from '../../webpages/types';
+import { HttpError } from '../../src/error';
+import { HamsterBase } from '../../src/hamsterbase';
+import { WebsiteExt } from '../../src/webpages/types';
 import { createTestServer } from '../server';
 import { Fixtures, getBase64Fixture, getPort, resolveRoot } from '../utils';
 require('isomorphic-fetch');
@@ -59,7 +58,7 @@ describe('test create view', () => {
     let err: HttpError | null = null;
     try {
       await hamsterbase.webpagesView.get('not_found');
-    } catch (error) {
+    } catch (error: any) {
       err = error;
     }
     expect(err!.status).toBe(404);
