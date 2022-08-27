@@ -1,13 +1,13 @@
 import { Client } from '../client';
 import {
-  UpdateWebPage,
+  PatchWebPageRequest,
   UploadWebpageRequest,
   UploadWebpageResponse,
-  WebPage,
-  ListOptions,
-  SearchOptions,
-  FilterOptions,
+  Webpage,
+  WebpagesFilterOptions,
   WebpagesList,
+  WebpagesListOptions,
+  WebpagesSearchOptions,
 } from './types';
 
 export class WebPages {
@@ -23,19 +23,19 @@ export class WebPages {
     return this.client.delete<string>(`/webpages/${id}`);
   }
 
-  get(id: string): Promise<WebPage> {
-    return this.client.get<WebPage>(`/webpages/${id}`);
+  get(id: string): Promise<Webpage> {
+    return this.client.get<Webpage>(`/webpages/${id}`);
   }
 
   getContent(id: string): Promise<string> {
     return this.client.get<string>(`/webpages/${id}/content`);
   }
 
-  update(id: string, newData: UpdateWebPage): Promise<WebPage> {
-    return this.client.put<WebPage>(`/webpages/${id}`, newData);
+  update(id: string, newData: PatchWebPageRequest): Promise<Webpage> {
+    return this.client.patch<Webpage>(`/webpages/${id}`, newData);
   }
 
-  list(options?: ListOptions): Promise<WebpagesList> {
+  list(options?: WebpagesListOptions): Promise<WebpagesList> {
     if (options) {
       const searchParams = this.buildFilterOptions(options);
       if (typeof options.sort === 'string') {
@@ -46,13 +46,13 @@ export class WebPages {
     return this.client.get<WebpagesList>(`/webpages`);
   }
 
-  search(options: SearchOptions): Promise<WebpagesList> {
+  search(options: WebpagesSearchOptions): Promise<WebpagesList> {
     const searchParams = this.buildFilterOptions(options);
     searchParams.append('q', String(options.q));
     return this.client.get<WebpagesList>(`/search/webpages?${searchParams.toString()}`);
   }
 
-  private buildFilterOptions(options: FilterOptions) {
+  private buildFilterOptions(options: WebpagesFilterOptions) {
     const searchParams = new URLSearchParams({});
     if (typeof options.liked === 'boolean') {
       searchParams.append('liked', String(options.liked));

@@ -1,16 +1,8 @@
 export interface UploadWebpageRequest {
-  /**
-   * @required
-   */
-  ext: WebsiteExt;
-  /**
-   * @required
-   *
-   * base64 编码后的网页内容
-   */
-  content: string;
   title?: string;
   link?: string;
+  content: string;
+  ext: WebsiteExt;
 }
 
 export const enum WebsiteExt {
@@ -19,7 +11,7 @@ export const enum WebsiteExt {
   html = 'html',
 }
 
-export interface WebPage {
+export interface Webpage {
   title: string;
   excerpt: string;
   firstAddTime: number;
@@ -33,7 +25,7 @@ export interface WebPage {
   highlights: any[];
 }
 
-export interface UpdateWebPage {
+export interface PatchWebPageRequest {
   title?: string;
   excerpt?: string;
   liked?: boolean;
@@ -45,7 +37,7 @@ export interface UploadWebpageResponse {
   id: string;
 }
 
-export interface FilterOptions {
+export interface WebpagesFilterOptions {
   liked?: boolean;
   read?: boolean;
   annotated?: boolean;
@@ -61,17 +53,17 @@ export interface FilterOptions {
   page?: number;
 }
 
-export interface ListOptions extends FilterOptions {
+export interface WebpagesListOptions extends WebpagesFilterOptions {
   /**
    * @default 'first_add_time_desc'
    */
   sort?: 'title_asc' | 'title_desc' | 'first_add_time_asc' | 'first_add_time_desc' | 'annotate_count_asc' | 'annotate_count_desc';
 }
 
-export interface SearchOptions extends FilterOptions {
+export interface WebpagesSearchOptions extends WebpagesFilterOptions {
   q: string;
 }
 
 export interface WebpagesList {
-  webpages: WebPage[];
+  webpages: Webpage[];
 }

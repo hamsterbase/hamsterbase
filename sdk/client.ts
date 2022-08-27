@@ -47,7 +47,7 @@ export class Client {
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        authorization: `token ${this.options.token}`,
+        authorization: `Bearer ${this.options.token}`,
       },
       body: data ? JSON.stringify(data) : undefined,
     });

@@ -82,7 +82,7 @@ export interface CreateViewRequest {
   match?: WebpagesViewFilterMatchRule;
 }
 
-export interface PatchViewRequest {
+export interface PatchWebpagesViewRequest {
   title?: string;
   description?: string;
   sort?: WebpagesViewSortOrder;
