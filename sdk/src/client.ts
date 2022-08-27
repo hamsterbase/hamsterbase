@@ -3,7 +3,7 @@ import { ErrorCodes, HttpError, ResponseError } from './error';
 export interface ClientOptions {
   endpoint: string;
   token: string;
-  requestLib: RequestLib;
+  requestLib?: RequestLib;
 }
 
 export interface RequestLib {
@@ -43,7 +43,8 @@ export class Client {
   }
 
   private async request<T>(method: string, api: string, data?: unknown): Promise<T> {
-    const response = await this.options.requestLib(`${this.options.endpoint}/public/api/v1${api}`, {
+    const requestLib = this.options.requestLib ?? fetch;
+    const response = await requestLib(`${this.options.endpoint}/public/api/v1${api}`, {
       method: method,
       headers: {
         'Content-Type': 'application/json',
