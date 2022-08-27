@@ -6,11 +6,16 @@
   "repository": "https://github.com/hamsterbase/hamsterbase/tree/main/sdk",
   "author": "hamsterbase",
   "license": "MIT",
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
     "test": "vitest run",
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/node": "^18.7.13",
     "isomorphic-fetch": "^3.0.0",
     "typescript": "^4.8.2",
     "vitest": "^0.16.0"
