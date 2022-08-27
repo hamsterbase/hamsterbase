@@ -11,6 +11,18 @@ export const enum WebsiteExt {
   html = 'html',
 }
 
+export interface WebpageHighlight {
+  highlightId: string;
+  type: 1;
+  marker: {
+    meta: {
+      textBefore: string;
+      textAfter: string;
+    };
+  };
+  text: string;
+}
+
 export interface Webpage {
   title: string;
   excerpt: string;
@@ -22,7 +34,7 @@ export interface Webpage {
   id: string;
   size: number;
   read: boolean;
-  highlights: any[];
+  highlights: WebpageHighlight[];
 }
 
 export interface PatchWebPageRequest {
