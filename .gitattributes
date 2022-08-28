@@ -1,0 +1,3 @@
+sdk/__test__/fixtures/** linguist-vendored
+beta/docs/** linguist-vendored
+src/docs/** linguist-vendored
