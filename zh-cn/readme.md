@@ -31,13 +31,26 @@ docker run \
  --port 31001
 ```
 
-## 从源码构建
+## 从源码构建 (0.3.0)
 
 1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase)
-2. 安装以来
+2. 安装依赖
 
    ```bash
    cd src
+   npm install
+   ```
+
+3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 simple 文件夹
+4. 运行脚本 `node main.js`
+
+## 从源码构建 (0.4.1-beta)
+
+1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase)
+2. 安装依赖
+
+   ```bash
+   cd beta
    npm install
    ```
 

@@ -31,7 +31,7 @@ docker run \
  --port 31001
 ```
 
-## Build from source
+## Build from source (0.3.0)
 
 1. Clone [repository](https://github.com/hamsterbase/hamsterbase)
 2. Install dependencies
@@ -44,7 +44,7 @@ docker run \
 3. Download [sqlite fts extension](https://github.com/wangfenjin/simple/releases), Unzip the file and place it in src/simple.
 4. Run Script `node main.js`
 
-## Build from source (Beta version)
+## Build from source (0.4.1-beta)
 
 1. Clone [repository](https://github.com/hamsterbase/hamsterbase)
 2. Install dependencies
