@@ -5,4 +5,5 @@ temp
 yarn.lock
 .DS_Store
 src/simple
+beta/simple
 sdk/lib
