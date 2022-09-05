@@ -15,7 +15,7 @@
     "src"
   ],
   "scripts": {
-    "test": "vitest run",
+    "test": "vitest",
     "build": "tsc"
   },
   "devDependencies": {

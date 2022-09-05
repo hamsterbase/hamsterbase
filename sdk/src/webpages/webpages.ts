@@ -12,15 +12,15 @@ import {
 
 export class WebPages {
   constructor(private client: Client) {}
-  create(data: UploadWebpageRequest): Promise<UploadWebpageResponse> {
-    return this.client.post<UploadWebpageResponse>('/webpages', data);
+  create(data: UploadWebpageRequest): Promise<Webpage> {
+    return this.client.post<Webpage>('/webpages', data);
   }
 
-  delete(id: string): Promise<string> {
+  delete(id: string): Promise<Webpage> {
     if (!id || typeof id !== 'string') {
       throw new Error('invalid webpage id');
     }
-    return this.client.delete<string>(`/webpages/${id}`);
+    return this.client.delete<Webpage>(`/webpages/${id}`);
   }
 
   get(id: string): Promise<Webpage> {

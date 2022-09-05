@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "cd sdk && npm run test",
+    "test": "cd sdk && npm run test run",
     "build": "cd sdk && npm run build",
     "pub": "cd sdk && npm publish",
     "postinstall": "cd sdk && yarn"

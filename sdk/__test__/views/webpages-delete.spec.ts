@@ -37,7 +37,8 @@ describe('test create view', () => {
     const { id } = await hamsterbase.webpagesView.create(request);
     const views = await hamsterbase.webpagesView.views();
     expect(views.length).toBe(1);
-    await hamsterbase.webpagesView.delete(id);
+    const view = await hamsterbase.webpagesView.delete(id);
+    expect([view]).toEqual(views);
     expect(await hamsterbase.webpagesView.views()).toEqual([]);
   });
 

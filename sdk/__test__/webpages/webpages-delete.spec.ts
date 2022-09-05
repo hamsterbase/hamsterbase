@@ -34,11 +34,10 @@ describe('test webpages', () => {
     await dispose();
   });
 
-  it('001: should get correct id when delete', async () => {
+  it('001: should get webpage stat when delete', async () => {
+    const webpage = await hamsterbase.webpages.get('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     const result = await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
-    expect(result).toEqual({
-      id: 'bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f',
-    });
+    expect(result).toEqual(webpage);
     try {
       await hamsterbase.webpages.delete('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f');
     } catch (error: any) {
@@ -81,7 +80,7 @@ describe('test webpages', () => {
       ext: WebsiteExt.mhtml,
       title: 'new title',
     });
-    expect(result).toEqual({
+    expect(result).toContain({
       id: 'bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f',
       link: 'https://hamsterbase.com/docs/what-is-hamsterbase.html',
       title: 'What is HamsterBase | HamsterBase',
@@ -96,7 +95,7 @@ describe('test webpages', () => {
       title: 'new title',
       link: 'https://hamsterbase.com',
     });
-    expect(result).toEqual({
+    expect(result).toContain({
       id: 'bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f',
       link: 'https://hamsterbase.com',
       title: 'new title',

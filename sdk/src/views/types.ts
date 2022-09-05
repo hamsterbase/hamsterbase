@@ -93,7 +93,7 @@ export interface PatchWebpagesViewRequest {
 
 export type WithId<T> = T & { id: string };
 
-export interface CreateViewResponse {
+export interface WebpagesView {
   id: string;
   title: string;
   createdAt: number;
