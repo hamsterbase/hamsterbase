@@ -44,13 +44,13 @@ docker run \
 3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 simple 文件夹
 4. 运行脚本 `node main.js`
 
-## 从源码构建 (0.4.1-beta)
+## 从源码构建 (0.4.2-beta)
 
 1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase)
 2. 安装依赖
 
    ```bash
-   cd beta
+   cd hamsterbase-0.4.2-beta
    npm install
    ```
 
