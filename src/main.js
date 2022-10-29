@@ -9,6 +9,6 @@ fork(server, process.argv.slice(2), {
     DATABASE_DIR: join(currentDir, 'database'),
     DOC_DIR: join(__dirname, 'docs'),
     WEB_RESOURCES: join(__dirname, 'web'),
-    SIMPLE: join(__dirname, 'simple'),
+    SIMPLE: join(__dirname, 'extra', 'simple'),
   },
 });
