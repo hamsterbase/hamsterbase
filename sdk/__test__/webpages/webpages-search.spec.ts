@@ -44,7 +44,7 @@ describe('test webpages', () => {
 
   it('001: should support get all pages', async () => {
     const result = await hamsterbase.webpages.search({ q: 'hamsterbase' });
-    expect(result.webpages.map((p) => ({ ...p, firstAddTime: null, createTime: null }))).toMatchSnapshot('search result');
+    expect(result.webpages.map((p) => ({ ...p, firstAddTime: null, createTime: null, content: null }))).toMatchSnapshot('search result');
   });
 
   async function expectList(idList: string[], options: WebpagesListOptions) {

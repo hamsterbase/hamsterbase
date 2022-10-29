@@ -158,7 +158,7 @@ describe('test webpages', () => {
         });
       } catch (error: any) {
         expect(error.code).toBe('E0001');
-        expect(error.message).toBe('parse error: Missing MHTML headers; Line 1');
+        expect(error.message).toBe('parse error: parse file failed');
       }
 
       try {
@@ -168,7 +168,7 @@ describe('test webpages', () => {
         });
       } catch (error: any) {
         expect(error.code).toBe('E0001');
-        expect(error.message).toBe(`parse error: Invalid binary plist. Expected 'bplist' at offset 0.`);
+        expect(error.message).toBe(`parse error: parse file failed`);
       }
     });
   });

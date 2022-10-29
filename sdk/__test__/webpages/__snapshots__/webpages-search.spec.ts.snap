@@ -4,12 +4,7 @@ exports[`test webpages > 001: should support get all pages > search result 1`] =
 [
   {
     "annotateCount": 0,
-    "content": [
-      {
-        "content": " IntroductionHamsterBase is a self-hosted, local-first web archive application. You can easy highlight and annotate pages, valuing privacy and security.",
-        "type": "text",
-      },
-    ],
+    "content": null,
     "createTime": null,
     "ext": "mhtml",
     "firstAddTime": null,
@@ -42,48 +37,7 @@ exports[`test webpages > 001: should support get all pages > search result 1`] =
   },
   {
     "annotateCount": 0,
-    "content": [
-      {
-        "content": "
-      
-    
-
-
-
-      
-
-
-    
-      
-
-  
-    
-    Labels
-      9
-  
-    
-    Milestones
-      0
-
-
-    
-  
-    
-    New issue
-  
-  
-          
-  
-    Have a question about this project? Sign up for a free GitHub account to open an issue and contact its maintainers and the community.
-  
-
-  
-
-  By clicking “Sign up for GitHub”, you agree to our terms of service and
-  privacy...",
-        "type": "text",
-      },
-    ],
+    "content": null,
     "createTime": null,
     "ext": "webarchive",
     "firstAddTime": null,
@@ -116,35 +70,7 @@ exports[`test webpages > 001: should support get all pages > search result 1`] =
   },
   {
     "annotateCount": 0,
-    "content": [
-      {
-        "content": "
- ",
-        "type": "text",
-      },
-      {
-        "content": "HamsterBase",
-        "type": "mark",
-      },
-      {
-        "content": "
-Online Demo | EULA ｜ Privacy policy ｜ Credits
-
-",
-        "type": "text",
-      },
-      {
-        "content": "HamsterBase",
-        "type": "mark",
-      },
-      {
-        "content": " is a self-hosted, local-first web archive application. You can easy highlight and annotate pages, valuing privacy and security.
-Features
-
-Store, manage, and preview HTML, MHTML and Webarchive documents...",
-        "type": "text",
-      },
-    ],
+    "content": null,
     "createTime": null,
     "ext": "html",
     "firstAddTime": null,

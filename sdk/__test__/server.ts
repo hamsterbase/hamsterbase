@@ -56,7 +56,7 @@ export async function createTestServer(options: RunServerOptions) {
       // console.log(data.toString());
     });
     cp.stdout!.on('data', (data: string) => {
-      // console.log('data', data);
+      // console.log('data', data.toString());
       if (data.toString().includes('Hamsterbase has started at')) {
         resolve({
           endpoint: `http://localhost:${options.port}`,

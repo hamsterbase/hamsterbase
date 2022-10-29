@@ -56,6 +56,7 @@ describe('test webpages', () => {
         read: false,
         size: 846558,
         annotateCount: 0,
+        labels: [],
       },
       {
         id: 'b03e82c2b622df1f039ecba4910f464becf5600b12425ea3d1f65d4c17d70d8d',
@@ -68,6 +69,7 @@ describe('test webpages', () => {
         read: false,
         size: 1785985,
         annotateCount: 0,
+        labels: [],
       },
       {
         title: 'What is HamsterBase | HamsterBase',
@@ -80,6 +82,7 @@ describe('test webpages', () => {
         ext: 'mhtml',
         size: 597054,
         annotateCount: 0,
+        labels: [],
       },
     ]);
   });
