@@ -26,7 +26,7 @@ export function resolveRoot(relativePath: string) {
 }
 
 export function resolveBetaFile(relativePath: string) {
-  return path.resolve(resolveRoot('beta'), relativePath);
+  return path.resolve(resolveRoot('hamsterbase-0.5.0-beta'), relativePath);
 }
 
 export function getPort() {

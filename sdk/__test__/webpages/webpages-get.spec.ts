@@ -47,6 +47,7 @@ describe('test webpages', () => {
       size: 597054,
       title: 'What is HamsterBase | HamsterBase',
       highlights: [],
+      labels: [],
       excerpt: '',
     });
   });
