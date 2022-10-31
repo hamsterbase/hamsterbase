@@ -68,6 +68,14 @@ export class WebPages {
         searchParams.append('host', String(e));
       });
     }
+
+    if (typeof options.labels === 'string') {
+      searchParams.append('labels', String(options.labels));
+    } else if (Array.isArray(options.labels)) {
+      options.labels.forEach((e) => {
+        searchParams.append('labels', String(e));
+      });
+    }
     if (typeof options.ext === 'string') {
       searchParams.append('ext', String(options.ext));
     } else if (Array.isArray(options.ext)) {

@@ -43,6 +43,7 @@ export interface PatchWebPageRequest {
   liked?: boolean;
   link?: string;
   read?: boolean;
+  labels?: string[];
 }
 
 export interface UploadWebpageResponse {
@@ -54,6 +55,7 @@ export interface WebpagesFilterOptions {
   read?: boolean;
   annotated?: boolean;
   host?: string | string[];
+  labels?: string | string[];
   ext?: WebsiteExt | WebsiteExt[];
   /**
    * @default 30

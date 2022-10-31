@@ -84,6 +84,15 @@ describe('test webpages', () => {
     );
   });
 
+  it('006: should support filter by labels', async () => {
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseDocument_01_mht, { labels: ['01', 'a'] });
+    await hamsterbase.webpages.update(FixturesId.HamsterBaseGithubIssue_02_webarchive, { labels: ['02', 'a'] });
+
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { labels: '01' });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht], { labels: ['01', 'a'] });
+    await expectList([FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubIssue_02_webarchive], { labels: 'a' });
+  });
+
   it('007: should support per_page and page', async () => {
     await expectList(
       [FixturesId.HamsterBaseDocument_01_mht, FixturesId.HamsterBaseGithubIssue_02_webarchive, FixturesId.HamsterBaseGithubHome_03_html],
