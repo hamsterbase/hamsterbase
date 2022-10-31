@@ -44,6 +44,7 @@ describe('test update', () => {
       liked: true,
       read: true,
       excerpt: 'this is',
+      labels: ['a', 'b'],
     };
     const result = await hamsterbase.webpages.update('bcf1e35729685a87ce18733080eaf0f80fec0c81a5a4608ef5b3f0272a37851f', update);
     expect(result).toEqual({
