@@ -49,7 +49,7 @@ export async function createTestServer(options: RunServerOptions) {
         DATABASE_DIR: options.database,
         DOC_DIR: resolveBetaFile('docs'),
         WEB_RESOURCES: resolveRoot('web'),
-        SIMPLE: resolveRoot('src/simple'),
+        SIMPLE: resolveRoot('release/simple'),
       },
     });
     cp.stderr!.on('data', (data) => {

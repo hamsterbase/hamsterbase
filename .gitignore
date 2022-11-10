@@ -7,3 +7,4 @@ yarn.lock
 src/simple
 beta/simple
 sdk/lib
+release/simple

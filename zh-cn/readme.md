@@ -19,7 +19,9 @@ HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高�
 
 ## Docker 部署 (只需 5 秒)
 
-Latest Version: 0.3.0
+Latest stable Version: 0.4.2-stable
+
+Latest beta Version: 0.5.0-beta
 
 ```bash
 docker run \
@@ -27,32 +29,19 @@ docker run \
  --name hamsterbase \
  --publish 31001:31001 \
  --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:0.3.0 \
+ hamsterbase/hamsterbase:0.4.2-stable \
  --port 31001
 ```
 
-## 从源码构建 (0.3.0)
+## 从源码构建
 
 1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase)
 2. 安装依赖
 
    ```bash
-   cd src
-   npm install
+   cd release/hamsterbase-0.4.2-stable # stable version
+   cd release/hamsterbase-0.5.0-beta   # beta version   npm install
    ```
 
-3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 simple 文件夹
-4. 运行脚本 `node main.js`
-
-## 从源码构建 (0.4.2-beta)
-
-1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase)
-2. 安装依赖
-
-   ```bash
-   cd hamsterbase-0.4.2-beta
-   npm install
-   ```
-
-3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 simple 文件夹
+3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 `release/hamsterbase-{version}/simple` 文件夹
 4. 运行脚本 `node main.js`

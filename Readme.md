@@ -19,7 +19,9 @@ HamsterBase is a self-hosted, local-first web archive application. You can easy 
 
 ## Docker deployment (only 5 seconds)
 
-Latest Version: 0.3.0
+Latest stable Version: 0.4.2-stable
+
+Latest beta Version: 0.5.0-beta
 
 ```bash
 docker run \
@@ -27,32 +29,20 @@ docker run \
  --name hamsterbase \
  --publish 31001:31001 \
  --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:0.3.0 \
+ hamsterbase/hamsterbase:0.4.2-stable \
  --port 31001
 ```
 
-## Build from source (0.3.0)
+## Build from source
 
 1. Clone [repository](https://github.com/hamsterbase/hamsterbase)
 2. Install dependencies
 
    ```bash
-   cd src
+   cd release/hamsterbase-0.4.2-stable # stable version
+   cd release/hamsterbase-0.5.0-beta   # beta version
    npm install
    ```
 
-3. Download [sqlite fts extension](https://github.com/wangfenjin/simple/releases), Unzip the file and place it in src/simple.
-4. Run Script `node main.js`
-
-## Build from source (0.4.2-beta)
-
-1. Clone [repository](https://github.com/hamsterbase/hamsterbase)
-2. Install dependencies
-
-   ```bash
-   cd hamsterbase-0.4.2-beta
-   npm install
-   ```
-
-3. Download [sqlite fts extension](https://github.com/wangfenjin/simple/releases), Unzip the file and place it in beta/simple.
+3. Download [sqlite fts extension](https://github.com/wangfenjin/simple/releases), Unzip the file and place it in `release/hamsterbase-{version}/simple`.
 4. Run Script `node main.js`

@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { latestVersion } from '../../release';
 
 export const enum Fixtures {
   HamsterBaseDocument_01_mht = '001.mht',
@@ -26,7 +27,7 @@ export function resolveRoot(relativePath: string) {
 }
 
 export function resolveBetaFile(relativePath: string) {
-  return path.resolve(resolveRoot('hamsterbase-0.5.0-beta'), relativePath);
+  return path.resolve(latestVersion, relativePath);
 }
 
 export function getPort() {
