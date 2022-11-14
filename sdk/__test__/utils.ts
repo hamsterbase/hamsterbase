@@ -14,6 +14,10 @@ export const enum FixturesId {
   HamsterBaseGithubHome_03_html = 'd4a1267d1f8a8eeb20d7b4b86a9d91839809e083ceb42366847ed5ed3a6cf254',
 }
 
+export function getTextFixture(fixtureName: Fixtures): Promise<string> {
+  return fs.readFile(path.join(__dirname, 'fixtures', fixtureName), 'utf-8');
+}
+
 export function getBase64Fixture(fixtureName: Fixtures): Promise<string> {
   return fs.readFile(path.join(__dirname, 'fixtures', fixtureName), 'base64');
 }
