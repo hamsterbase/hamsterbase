@@ -1,10 +1,14 @@
 # HamsterBase
 
-[Online Demo](https://hamsterbase.onrender.com) | [用户协议](https://hamsterbase.com/zh/docs/legal/eula/000.html) ｜ [隐私协议](https://hamsterbase.com/zh/docs/legal/privacy/000.html) ｜ [三方库](https://hamsterbase.com/zh/docs/legal/credits.html) | [SDK](https://www.npmjs.com/package/@hamsterbase/sdk)
+[在线 Demo](https://hamsterbase.onrender.com)｜[用户协议](https://hamsterbase.com/redirect?to=eula&lang=zh-CN)｜[隐私协议](https://hamsterbase.com/redirect?to=privacy&lang=zh-CN)｜[致谢](https://hamsterbase.com/redirect?to=credits&lang=zh-CN)｜[SDK](https://www.npmjs.com/package/@hamsterbase/sdk)
 
 ![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 
 HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高亮网页，我们重视隐私和安全。
+
+## 安装
+
+[macOS](https://hamsterbase.com/redirect?to=install-macos&lang=zh-CN) | [Windows](https://hamsterbase.com/redirect?to=install-windows&lang=zh-CN) | [群晖](https://hamsterbase.com/redirect?to=install-synology&lang=zh-CN) | [Docker](https://hamsterbase.com/redirect?to=install-docker&lang=zh-CN)
 
 ## 功能
 

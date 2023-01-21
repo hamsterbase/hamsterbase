@@ -6,6 +6,10 @@
 
 HamsterBase is a self-hosted, local-first web archive application. You can easy highlight and annotate pages, valuing privacy and security.
 
+## Install
+
+[macOS](https://hamsterbase.com/redirect?to=install-macos) | [Windows](https://hamsterbase.com/redirect?to=install-windows) | [Synology](https://hamsterbase.com/redirect?to=install-synology) | [Docker](https://hamsterbase.com/redirect?to=install-docker)
+
 ## Features
 
 - Store, manage, and preview HTML, [MHTML](https://en.wikipedia.org/wiki/MHTML) and [Webarchive](https://en.wikipedia.org/wiki/Webarchive) documents.
