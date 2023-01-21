@@ -8,7 +8,7 @@ HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高�
 
 ## 安装
 
-[macOS](https://hamsterbase.com/redirect?to=install-macos&lang=zh-CN) | [Windows](https://hamsterbase.com/redirect?to=install-windows&lang=zh-CN) | [群晖](https://hamsterbase.com/redirect?to=install-synology&lang=zh-CN) | [Docker](https://hamsterbase.com/redirect?to=install-docker&lang=zh-CN)
+[macOS](https://hamsterbase.com/redirect?to=install-macos&lang=zh-CN)｜[Windows](https://hamsterbase.com/redirect?to=install-windows&lang=zh-CN)｜[群晖](https://hamsterbase.com/redirect?to=install-synology&lang=zh-CN)｜[Docker](https://hamsterbase.com/redirect?to=install-docker&lang=zh-CN)｜[从源码构建](https://hamsterbase.com/redirect?to=install-source&lang=zh-CN)
 
 ## 功能
 
@@ -20,37 +20,3 @@ HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高�
 - 全文搜索
 - 开源 SDK
 - 暗黑模式
-
-# Docker 部署 (只需 5 秒)
-
-Latest stable Version: 0.5.1-stable Latest beta Version: 0.6.0-beta
-
-```bash
-docker run \
- -d --rm \
- --name hamsterbase \
- --publish 31001:31001 \
- --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:stable \
- --port 31001
- --password pwd
-```
-
-## 从源码构建
-
-1. 克隆 [仓库](https://github.com/hamsterbase/hamsterbase) 到本地
-
-   ```bash
-   git clone --depth 1 https://github.com/hamsterbase/hamsterbase.git
-   ```
-
-2. 安装依赖
-
-   ```bash
-   cd release/hamsterbase-0.5.1-stable # 稳定版
-   cd release/hamsterbase-0.6.0-beta   # 测试版
-   npm install
-   ```
-
-3. 下载 [sqlite fts 插件](https://github.com/wangfenjin/simple/releases), 把文件解压到 `release/hamsterbase-{version}/extra/simple` 文件夹
-4. 运行脚本 `node main.js`
