@@ -19,7 +19,7 @@ HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高�
 
 # Docker 部署 (只需 5 秒)
 
-Latest stable Version: 0.4.2-stable Latest beta Version: 0.5.1-beta
+Latest stable Version: 0.5.1-stable Latest beta Version: 0.6.0-beta
 
 ```bash
 docker run \
@@ -27,7 +27,7 @@ docker run \
  --name hamsterbase \
  --publish 31001:31001 \
  --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:0.4.2-stable \
+ hamsterbase/hamsterbase:stable \
  --port 31001
  --password pwd
 ```
@@ -43,8 +43,8 @@ docker run \
 2. 安装依赖
 
    ```bash
-   cd release/hamsterbase-0.4.2-stable # 稳定版
-   cd release/hamsterbase-0.5.1-beta   # 测试版
+   cd release/hamsterbase-0.5.1-stable # 稳定版
+   cd release/hamsterbase-0.6.0-beta   # 测试版
    npm install
    ```
 

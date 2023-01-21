@@ -1,6 +1,6 @@
 # HamsterBase
 
-[Online Demo](https://hamsterbase.onrender.com) | [EULA](https://hamsterbase.com/docs/legal/eula/000.html) ｜ [Privacy policy](https://hamsterbase.com/docs/legal/privacy/000.html) ｜ [Credits](https://hamsterbase.com/docs/legal/credits.html) | [SDK](https://www.npmjs.com/package/@hamsterbase/sdk)
+[Online Demo](https://hamsterbase.onrender.com) | [EULA](https://hamsterbase.com/redirect?to=eula) ｜ [Privacy policy](https://hamsterbase.com/redirect?to=privacy) ｜ [Credits](https://hamsterbase.com/redirect?to=credits) | [SDK](https://www.npmjs.com/package/@hamsterbase/sdk)
 
 ![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 
@@ -19,9 +19,7 @@ HamsterBase is a self-hosted, local-first web archive application. You can easy 
 
 ## Docker deployment (only 5 seconds)
 
-Latest stable Version: 0.4.2-stable
-
-Latest beta Version: 0.5.1-beta
+Latest stable Version: 0.5.1-stable, Latest beta Version: 0.6.0-beta
 
 ```bash
 docker run \
@@ -29,7 +27,7 @@ docker run \
  --name hamsterbase \
  --publish 31001:31001 \
  --volume ~/.hamsterbase/data:/app/data \
- hamsterbase/hamsterbase:0.4.2-stable \
+ hamsterbase/hamsterbase:stable \
  --port 31001
  --password pwd
 ```
@@ -45,8 +43,8 @@ docker run \
 2. Install dependencies
 
    ```bash
-   cd release/hamsterbase-0.4.2-stable # stable version
-   cd release/hamsterbase-0.5.1-beta   # beta version
+   cd release/hamsterbase-0.5.1-stable # stable version
+   cd release/hamsterbase-0.6.0-beta   # beta version
 
    npm install
    ```
