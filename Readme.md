@@ -6,7 +6,7 @@
 
 HamsterBase is a local-first,privacy first knowledge collector.
 
-## Download **free** Desktop app
+## Download Desktop app
 
 [Mac with Apple chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Mac with Intel chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
 
