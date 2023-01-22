@@ -4,9 +4,13 @@
 
 ![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 
-HamsterBase 是一个本地优先的网页存档应用。您可以轻松地高亮网页，我们重视隐私和安全。
+HamsterBase 是一个本地优先,隐私优先的知识收集工具。
 
-## 安装
+## 下载**免费**的桌面版本
+
+[苹果芯片的 Mac](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Intel 芯片的 Mac](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
+
+## 其他
 
 [macOS](https://hamsterbase.com/redirect?to=install-macos&lang=zh-CN)｜[Windows](https://hamsterbase.com/redirect?to=install-windows&lang=zh-CN)｜[群晖](https://hamsterbase.com/redirect?to=install-synology&lang=zh-CN)｜[Docker](https://hamsterbase.com/redirect?to=install-docker&lang=zh-CN)｜[从源码构建](https://hamsterbase.com/redirect?to=install-source&lang=zh-CN)
 

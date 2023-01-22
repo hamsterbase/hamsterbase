@@ -4,9 +4,13 @@
 
 ![](https://raw.githubusercontent.com/hamsterbase/hamsterbase/main/home.png)
 
-HamsterBase is a self-hosted, local-first web archive application. You can easy highlight and annotate pages, valuing privacy and security.
+HamsterBase is a local-first,privacy first knowledge collector.
 
-## Install
+## Download **free** Desktop app
+
+[Mac with Apple chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Mac with Intel chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
+
+## Other
 
 [macOS](https://hamsterbase.com/redirect?to=install-macos) | [Windows](https://hamsterbase.com/redirect?to=install-windows) | [Synology](https://hamsterbase.com/redirect?to=install-synology) | [Docker](https://hamsterbase.com/redirect?to=install-docker) | [Build from source](https://hamsterbase.com/redirect?to=install-source)
 
