@@ -89,6 +89,9 @@ export class WebPages {
     if (typeof options.per_page === 'number') {
       searchParams.append('per_page', String(options.per_page));
     }
+    if (typeof options.annotated === 'boolean') {
+      searchParams.append('annotated', String(options.annotated));
+    }
     return searchParams;
   }
 }
