@@ -16,7 +16,8 @@
   ],
   "scripts": {
     "test": "vitest",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "rm -rf lib && npm run build"
   },
   "devDependencies": {
     "@types/node": "^18.7.13",
