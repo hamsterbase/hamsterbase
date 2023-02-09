@@ -8,7 +8,7 @@ HamsterBase is a local-first,privacy first knowledge collector.
 
 ## Download Desktop app
 
-[Mac with Apple chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Mac with Intel chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
+[Mac App Store](https://hamsterbase.com/redirect?to=mac-app-store)｜[Mac with Apple chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Mac with Intel chip](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
 
 ## Detailed installation guides
 
