@@ -12,7 +12,7 @@ HamsterBase 是一个本地优先,隐私优先的知识收集工具。
 
 ## 详细安装教程
 
-[macOS](https://hamsterbase.com/redirect?to=install-macos&lang=zh-CN)｜[Windows](https://hamsterbase.com/redirect?to=install-windows&lang=zh-CN)｜[群晖](https://hamsterbase.com/redirect?to=install-synology&lang=zh-CN)｜[Docker](https://hamsterbase.com/redirect?to=install-docker&lang=zh-CN)｜[从源码构建](https://hamsterbase.com/redirect?to=install-source&lang=zh-CN)
+[macOS](https://hamsterbase.com/redirect?to=install-macos&lang=zh-CN)｜[Windows](https://hamsterbase.com/redirect?to=install-windows&lang=zh-CN)｜[群晖](https://hamsterbase.com/redirect?to=install-synology&lang=zh-CN)｜[Docker](https://hamsterbase.com/redirect?to=install-docker&lang=zh-CN)｜[用压缩后的 js 产物构建](https://hamsterbase.com/redirect?to=install-source&lang=zh-CN)
 
 ## 功能
 

@@ -12,7 +12,7 @@ HamsterBase is a local-first,privacy first knowledge collector.
 
 ## Detailed installation guides
 
-[macOS](https://hamsterbase.com/redirect?to=install-macos) | [Windows](https://hamsterbase.com/redirect?to=install-windows) | [Synology](https://hamsterbase.com/redirect?to=install-synology) | [Docker](https://hamsterbase.com/redirect?to=install-docker) | [Build from source](https://hamsterbase.com/redirect?to=install-source)
+[macOS](https://hamsterbase.com/redirect?to=install-macos) | [Windows](https://hamsterbase.com/redirect?to=install-windows) | [Synology](https://hamsterbase.com/redirect?to=install-synology) | [Docker](https://hamsterbase.com/redirect?to=install-docker) | [Build with minified js](https://hamsterbase.com/redirect?to=install-source)
 
 ## Features
 
