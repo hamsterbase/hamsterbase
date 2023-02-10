@@ -24,3 +24,15 @@ HamsterBase 是一个本地优先,隐私优先的知识收集工具。
 - 全文搜索
 - 开源 SDK
 - 暗黑模式
+
+## Faq
+
+### HamsterBase 是开源的吗？
+
+HamsterBase **不是** 开源软件，它只通过 GitHub 发布。
+
+但是我们已经开源了 SDK，你可以在[这里]（https://www.npmjs.com/package/@hamsterbase/sdk）找到它。
+
+而且我们还提供了其他平台的开源扩展
+
+- [logseq-hamsterbase](https://github.com/hamsterbase/logseq-hamsterbase)

@@ -24,3 +24,15 @@ HamsterBase is a local-first,privacy first knowledge collector.
 - Full Text Search
 - Open source SDK
 - Dark Mode
+
+## Faq
+
+### Is HamsterBase open source?
+
+HamsterBase is **not** open source software, it is only distributed through GitHub.
+
+But we have open sourced the SDK, you can find it [here](https://www.npmjs.com/package/@hamsterbase/sdk).
+
+And we provide open source Extension for other platforms
+
+- [logseq-hamsterbase](https://github.com/hamsterbase/logseq-hamsterbase)
