@@ -8,7 +8,7 @@ HamsterBase 是一个本地优先,隐私优先的知识收集工具。
 
 ## 下载桌面版本
 
-[Mac 软件商店](https://hamsterbase.com/redirect?to=mac-app-store)｜[苹果芯片的 Mac](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Intel 芯片的 Mac](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
+[Mac App Store](https://hamsterbase.com/redirect?to=mac-app-store) | [苹果芯片的 Mac](https://hamsterbase.com/redirect?to=download-desktop-darwin-arm64)｜[Intel 芯片的 Mac](https://hamsterbase.com/redirect?to=download-desktop-darwin-x64)｜[Windows](https://hamsterbase.com/redirect?to=download-desktop-win-x64)
 
 ## 详细安装教程
 
