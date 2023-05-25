@@ -5,7 +5,7 @@ export interface UploadWebpageRequest {
   ext: WebsiteExt;
 }
 
-export const enum WebsiteExt {
+export enum WebsiteExt {
   mhtml = 'mhtml',
   webarchive = 'webarchive',
   html = 'html',
@@ -71,7 +71,13 @@ export interface WebpagesListOptions extends WebpagesFilterOptions {
   /**
    * @default 'first_add_time_desc'
    */
-  sort?: 'title_asc' | 'title_desc' | 'first_add_time_asc' | 'first_add_time_desc' | 'annotate_count_asc' | 'annotate_count_desc';
+  sort?:
+    | 'title_asc'
+    | 'title_desc'
+    | 'first_add_time_asc'
+    | 'first_add_time_desc'
+    | 'annotate_count_asc'
+    | 'annotate_count_desc';
 }
 
 export interface WebpagesSearchOptions extends WebpagesFilterOptions {

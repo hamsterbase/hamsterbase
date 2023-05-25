@@ -2,7 +2,6 @@ import { Client } from '../client';
 import {
   PatchWebPageRequest,
   UploadWebpageRequest,
-  UploadWebpageResponse,
   Webpage,
   WebpagesFilterOptions,
   WebpagesList,
@@ -12,6 +11,7 @@ import {
 
 export class WebPages {
   constructor(private client: Client) {}
+
   create(data: UploadWebpageRequest): Promise<Webpage> {
     return this.client.post<Webpage>('/webpages', data);
   }
@@ -41,7 +41,9 @@ export class WebPages {
       if (typeof options.sort === 'string') {
         searchParams.append('sort', String(options.sort));
       }
-      return this.client.get<WebpagesList>(`/webpages?${searchParams.toString()}`);
+      return this.client.get<WebpagesList>(
+        `/webpages?${searchParams.toString()}`
+      );
     }
     return this.client.get<WebpagesList>(`/webpages`);
   }
@@ -49,7 +51,9 @@ export class WebPages {
   search(options: WebpagesSearchOptions): Promise<WebpagesList> {
     const searchParams = this.buildFilterOptions(options);
     searchParams.append('q', String(options.q));
-    return this.client.get<WebpagesList>(`/search/webpages?${searchParams.toString()}`);
+    return this.client.get<WebpagesList>(
+      `/search/webpages?${searchParams.toString()}`
+    );
   }
 
   private buildFilterOptions(options: WebpagesFilterOptions) {

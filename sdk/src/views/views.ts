@@ -1,6 +1,10 @@
 import { Client } from '../client';
 import { WebpagesList } from '../webpages/types';
-import { CreateViewRequest, PatchWebpagesViewRequest, WebpagesView } from './types';
+import {
+  CreateViewRequest,
+  PatchWebpagesViewRequest,
+  WebpagesView,
+} from './types';
 
 export class Views {
   constructor(private client: Client) {}

@@ -4,7 +4,7 @@ export class HttpError extends Error {
   }
 }
 
-export const enum ErrorCodes {
+export enum ErrorCodes {
   E0001 = 'E0001',
 }
 

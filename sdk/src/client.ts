@@ -10,7 +10,9 @@ export interface RequestLib {
   (url: string, options: RequestInit): Promise<Response>;
 }
 
-export type HamsterBaseResponse<T> = { success: true; data: T } | { success: false; message: string; error: ErrorCodes };
+export type HamsterBaseResponse<T> =
+  | { success: true; data: T }
+  | { success: false; message: string; error: ErrorCodes };
 
 export class Client {
   constructor(private options: ClientOptions) {
@@ -42,16 +44,23 @@ export class Client {
     return this.request<T>('GET', api);
   }
 
-  private async request<T>(method: string, api: string, data?: unknown): Promise<T> {
+  private async request<T>(
+    method: string,
+    api: string,
+    data?: unknown
+  ): Promise<T> {
     const requestLib = this.options.requestLib ?? fetch;
-    const response = await requestLib(`${this.options.endpoint}/public/api/v1${api}`, {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${this.options.token}`,
-      },
-      body: data ? JSON.stringify(data) : undefined,
-    });
+    const response = await requestLib(
+      `${this.options.endpoint}/public/api/v1${api}`,
+      {
+        method: method,
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${this.options.token}`,
+        },
+        body: data ? JSON.stringify(data) : undefined,
+      }
+    );
     if (response.status !== 200) {
       const message = await response.text();
       try {

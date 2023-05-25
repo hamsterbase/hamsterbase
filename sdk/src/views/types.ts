@@ -1,4 +1,4 @@
-export const enum WebpagesViewSortOrder {
+export enum WebpagesViewSortOrder {
   random = 0,
   title_asc = 1,
   title_desc = 2,
@@ -8,25 +8,25 @@ export const enum WebpagesViewSortOrder {
   annotate_count_desc = 6,
 }
 
-export const enum WebpagesViewFilterType {
+export enum WebpagesViewFilterType {
   constant = 0,
   select = 1,
   multiple_selection = 2,
 }
 
-export const enum AnnotationFilterOperator {
+export enum AnnotationFilterOperator {
   is = 0,
   is_not = 1,
   is_greater_than = 2,
   is_less_than = 3,
 }
 
-export const enum FirstAddTimeFilterOperator {
+export enum FirstAddTimeFilterOperator {
   before = 0,
   after = 1,
 }
 
-export const enum FirstAddTimeFilterRightOperands {
+export enum FirstAddTimeFilterRightOperands {
   day_1 = 0,
   week_1 = 1,
   month_1 = 2,
