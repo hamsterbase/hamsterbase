@@ -15,7 +15,6 @@
     "src"
   ],
   "scripts": {
-    "test": "vitest",
     "build": "tsc",
     "prepublishOnly": "rm -rf lib && npm run build"
   },
