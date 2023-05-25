@@ -1,13 +1,26 @@
 import { ErrorCodes, HttpError, ResponseError } from './error';
 
+export interface HamsterBaseRequestLibOption {
+  method: string;
+  headers: Record<string, string>;
+  body?: string;
+}
+
+export interface HamsterBaseRequestLibResponse {
+  status: number;
+  body: string;
+}
+
+export interface HamsterBaseRequestLib {
+  (
+    url: string,
+    options: HamsterBaseRequestLibOption
+  ): Promise<HamsterBaseRequestLibResponse>;
+}
 export interface ClientOptions {
   endpoint: string;
   token: string;
-  requestLib?: RequestLib;
-}
-
-export interface RequestLib {
-  (url: string, options: RequestInit): Promise<Response>;
+  requestLib?: HamsterBaseRequestLib;
 }
 
 export type HamsterBaseResponse<T> =
@@ -49,7 +62,7 @@ export class Client {
     api: string,
     data?: unknown
   ): Promise<T> {
-    const requestLib = this.options.requestLib ?? fetch;
+    const requestLib = this.options.requestLib ?? this.internalRequest;
     const response = await requestLib(
       `${this.options.endpoint}/public/api/v1${api}`,
       {
@@ -62,7 +75,7 @@ export class Client {
       }
     );
     if (response.status !== 200) {
-      const message = await response.text();
+      const message = response.body;
       try {
         throw new HttpError(response.status, JSON.parse(message).message);
       } catch (error) {
@@ -72,10 +85,24 @@ export class Client {
         throw new HttpError(response.status, message);
       }
     }
-    const json = (await response.json()) as HamsterBaseResponse<T>;
+    const json = JSON.parse(response.body);
     if (!json.success) {
       throw new ResponseError(json.error, json.message);
     }
     return json.data;
+  }
+
+  private async internalRequest(
+    url: string,
+    options: HamsterBaseRequestLibOption
+  ): Promise<HamsterBaseRequestLibResponse> {
+    const response = await fetch(url, {
+      method: options.method,
+      headers: options.headers,
+      body: options.body,
+    });
+    const status = response.status;
+    const body = await response.text();
+    return { status, body };
   }
 }

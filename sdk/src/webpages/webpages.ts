@@ -1,5 +1,6 @@
 import { Client } from '../client';
 import {
+  CreateHighlightRequest,
   PatchWebPageRequest,
   UploadWebpageRequest,
   Webpage,
@@ -33,6 +34,32 @@ export class WebPages {
 
   update(id: string, newData: PatchWebPageRequest): Promise<Webpage> {
     return this.client.patch<Webpage>(`/webpages/${id}`, newData);
+  }
+
+  /**
+   * @since hamsterbase 0.7.1
+   */
+  createHighlight(
+    webpageId: string,
+    request: CreateHighlightRequest
+  ): Promise<string> {
+    return this.client.post<string>(
+      `/webpages/${webpageId}/highlights`,
+      request
+    );
+  }
+
+  /**
+   * @since hamsterbase 0.7.1
+   *
+   * @param webpageId webpage id
+   * @param highlightId highlight id
+   * @returns WebPages
+   */
+  deleteHighlight(webpageId: string, highlightId: string): Promise<Webpage> {
+    return this.client.delete<Webpage>(
+      `/webpages/${webpageId}/highlights/${highlightId}`
+    );
   }
 
   list(options?: WebpagesListOptions): Promise<WebpagesList> {

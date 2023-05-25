@@ -21,6 +21,7 @@ export interface WebpageHighlight {
     };
   };
   text: string;
+  editTime?: number;
 }
 
 export interface Webpage {
@@ -44,6 +45,14 @@ export interface PatchWebPageRequest {
   link?: string;
   read?: boolean;
   labels?: string[];
+}
+
+export interface CreateHighlightRequest {
+  text: string;
+  textBefore: string;
+  textAfter: string;
+  tenThousandth?: number;
+  note?: string;
 }
 
 export interface UploadWebpageResponse {
