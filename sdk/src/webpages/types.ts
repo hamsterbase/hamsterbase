@@ -21,6 +21,7 @@ export interface WebpageHighlight {
     };
   };
   text: string;
+  note?: string;
   editTime?: number;
 }
 
@@ -91,6 +92,10 @@ export interface WebpagesListOptions extends WebpagesFilterOptions {
 
 export interface WebpagesSearchOptions extends WebpagesFilterOptions {
   q: string;
+}
+
+export interface UpdateWebpageHighlightOption {
+  note: string;
 }
 
 export interface WebpagesList {

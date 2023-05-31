@@ -2,6 +2,7 @@ import { Client } from '../client';
 import {
   CreateHighlightRequest,
   PatchWebPageRequest,
+  UpdateWebpageHighlightOption,
   UploadWebpageRequest,
   Webpage,
   WebpagesFilterOptions,
@@ -59,6 +60,25 @@ export class WebPages {
   deleteHighlight(webpageId: string, highlightId: string): Promise<Webpage> {
     return this.client.delete<Webpage>(
       `/webpages/${webpageId}/highlights/${highlightId}`
+    );
+  }
+
+  /**
+   * @since hamsterbase 0.7.1
+   *
+   * @param webpageId webpage id
+   * @param highlightId highlight id
+   *
+   * @returns WebPages
+   */
+  updateHighlight(
+    webpageId: string,
+    highlightId: string,
+    option: UpdateWebpageHighlightOption
+  ): Promise<Webpage> {
+    return this.client.patch<Webpage>(
+      `/webpages/${webpageId}/highlights/${highlightId}`,
+      option
     );
   }
 
