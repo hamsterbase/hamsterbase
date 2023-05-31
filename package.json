@@ -5,5 +5,6 @@
     "pub": "cd sdk && npm publish",
     "postinstall": "cd sdk && yarn"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "version": "0.0.0"
 }
