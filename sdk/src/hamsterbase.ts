@@ -1,5 +1,5 @@
 import { Client, ClientOptions, HamsterBaseRequestLibOption } from './client';
-import { Views } from './views';
+import { Views } from './views/index';
 import { WebPages } from './webpages/webpages';
 
 export class HamsterBase {

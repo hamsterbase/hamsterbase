@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-
-    "module": "commonjs",
+    "module": "ESNext",
     "rootDir": "./src",
     "declaration": true,
-    "outDir": "./lib",
-
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 

@@ -2,7 +2,8 @@
   "name": "@hamsterbase/sdk",
   "version": "0.3.0",
   "description": "sdk of hamsterbase",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -11,7 +12,7 @@
   "author": "hamsterbase",
   "license": "MIT",
   "files": [
-    "lib",
+    "dist",
     "src"
   ],
   "scripts": {
