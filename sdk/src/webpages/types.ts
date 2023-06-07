@@ -1,3 +1,7 @@
+export interface HamsterBaseVersion {
+  version: string;
+}
+
 export interface UploadWebpageRequest {
   title?: string;
   link?: string;

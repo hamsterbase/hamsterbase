@@ -1,5 +1,6 @@
 import { Client, ClientOptions, HamsterBaseRequestLibOption } from './client';
 import { Views } from './views/index';
+import { HamsterBaseVersion } from './webpages/types';
 import { WebPages } from './webpages/webpages';
 
 export class HamsterBase {
@@ -24,5 +25,9 @@ export class HamsterBase {
     this.client = new Client(options);
     this.webpages = new WebPages(this.client);
     this.webpagesView = new Views(this.client);
+  }
+
+  public version(): Promise<HamsterBaseVersion> {
+    return this.client.get<HamsterBaseVersion>('/version');
   }
 }
