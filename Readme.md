@@ -33,6 +33,9 @@ HamsterBase is **not** open source software, it is only distributed through GitH
 
 But we have open sourced the SDK, you can find it [here](https://www.npmjs.com/package/@hamsterbase/sdk).
 
-And we provide open source Extension for other platforms
+And we provide some open source Extension
 
-- [logseq-hamsterbase](https://github.com/hamsterbase/logseq-hamsterbase)
+- [hamsterbase-highlighter](https://github.com/hamsterbase/hamsterbase-highlighter) Official web highlighter extension.
+- [logseq-hamsterbase](https://github.com/hamsterbase/logseq-hamsterbase) Sync your highlights and notes to logseq.
+- [obsidian-hamsterbase](https://github.com/hamsterbase/obsidian-hamsterbase) Sync your highlights and notes to obsidian.
+- [siyuan-hamsterbase](https://github.com/hamsterbase/siyuan-hamsterbase) Sync your highlights and notes to siyuan.
